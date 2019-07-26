@@ -36,6 +36,9 @@
         </b-dropdown>
        
       </div>
+      <div class="notification">
+      <img src="icons8-notification-40.png" />
+      </div>
       <div class="profile">
         <b-dropdown
           id="dropdown-left"

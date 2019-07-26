@@ -6,12 +6,12 @@
     font-family: sans-serif;
     display: grid !important;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr auto auto;
-    grid-template-areas: "routeTitle new profile";
+    grid-template-columns: 1fr auto auto auto;
+    grid-template-areas: "routeTitle  new notification profile";
     overflow:visible;
   }
 
-
+ 
   .routeTitle {
     font-family: Arial;
     grid-area: routeTitle;
@@ -57,6 +57,12 @@
     grid-area: new;
     width: 100%;
     padding-right: 22px;
+  }
+  .notification{
+    grid-area: notification;
+    width:100%;
+    cursor: pointer;
+    padding-right: 30px;
   }
   .new .newBtn {
     color: white;

@@ -1,6 +1,5 @@
 <template>
-  <div class="directorSidebar">
-    
+  <div class="directorSidebar">sadfdfc
   </div>
 </template>
 <script>
@@ -12,4 +11,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "../../../assets/style/directordash/directorSidebar.scss";
+
 </style>
