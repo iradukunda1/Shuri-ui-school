@@ -1,0 +1,148 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+    .cardform {
+      margin: auto;
+      width: 40%;
+      background: #ffffff;
+      border: 1px solid #dcdee2;
+      box-sizing: border-box;
+      box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px 0 30px 0;
+    
+    .Tittle {
+      margin: auto;
+      width: 60%;
+      
+      .text {
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 21px;
+        text-align: center;
+        color: #000000;
+      }
+    }
+    .form {
+      width: 60%;
+      margin: auto;
+  
+      .gender {
+        background: #ffffff;
+        border: 1px solid #c5c7cb;
+        box-sizing: border-box;
+        border-radius: 3px;
+        width: 100%;
+        height: 35px;
+      }
+      .Country {
+        background: #ffffff;
+        border: 1px solid #c5c7cb;
+        box-sizing: border-box;
+        border-radius: 3px;
+        width: 100%;
+        height: 35px;
+      }
+      input {
+        background: #ffffff;
+        border: 1px solid #c5c7cb;
+        box-sizing: border-box;
+        border-radius: 3px;
+        width: 100%;
+        height: 35px;
+      }
+      .dateSelectors {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "day month year";
+        height: 35px;
+        grid-gap: 10px;
+      }
+      select {
+        border-radius: 5px;
+        border: 1px solid #c5c7cb;
+        padding-left: 9px;
+        font-family: sans-serif;
+        font-size: 14px;
+        -webkit-appearance: menulist-button;
+        color: black;
+        cursor: pointer;
+      }
+      .dateSelectors select option[disabled] {
+        color: #868383;
+        background: #b5b3b3;
+      }
+      .dateSelectors select:nth-child(1) {
+        grid-area: day;
+      }
+      select:invalid {
+        color: #c4c4c4;
+      }
+      .dateSelectors select:nth-child(2) {
+        grid-area: month;
+      }
+      .dateSelectors select:nth-child(3) {
+        grid-area: year;
+      }
+      select option {
+        color: black;
+      }
+      label {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 20px;
+        align-items: center;
+        color: #000000;
+        margin: 8px 0 0;
+      }
+      .legal {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 15px;
+        color: #282c31;
+        margin: 10px 0;
+      }
+      .continue {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        margin: auto;
+        color: #ffffff;
+      }
+      button {
+        width: 100%;
+        height: 35px;
+        background: #2f75c1;
+        border-radius: 3px;
+        border: none;
+      }
+      .emailinput {
+        padding-left: 10px;
+        background: rgba(197, 199, 203, 0.3);
+        border: 1px solid #c5c7cb;
+        box-sizing: border-box;
+        border-radius: 3px;
+      }
+      
+      .namefield {
+        padding-left: 10px;
+      }
+      .term {
+        text-decoration: none;
+        color: #2f75c1;
+      }
+    }
+    }
