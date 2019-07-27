@@ -1,5 +1,12 @@
  <template>
-  <div class="schoolreg">
+ <div class="dashlogin">
+        <div class="loginNav">
+      <div class="icon">
+        <img src="vue-logo.png" />
+      </div>
+      <p>ShuriDash</p>
+    </div>
+    <div class="loginContent">
       <div class="cardform">
         <div class="Tittle">
           <p class="text">Please provide this information to get started</p>
@@ -37,14 +44,14 @@
             </div>
             <div class="country">
               <label for="country">Country</label>
-              <select name="country" class="Country">
+              <select name="country" class="Country" required>
                 <option value disabled selected>select country</option>
                 <option value="rwanda">Rwanda</option>
                 <option value="canada">Canada</option>
               </select>
             </div>
             <label for="Password">Password</label>
-            <input type="password" />
+            <input type="password" placeholder="Password" class="namefield"/>
             <p class="legal">
               By signing up, you agree to our 
               <router-link to="#" class="term">Terms of Service</router-link> and 
@@ -57,6 +64,7 @@
         </div>
       </div>
   </div>
+  </div>
 </template>
 <script>
 export default {
@@ -66,5 +74,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../assets/style/employerProfile.scss";
+@import "../../assets/style/Forms/employeeProfile.scss";
 </style>

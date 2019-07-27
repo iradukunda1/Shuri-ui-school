@@ -1,107 +1,45 @@
 <template>
-  <div class="newClass">
-    <i class="fa fa-close"></i>
+  <div class="newDiscipline">
+    <span class="closeModal" @click="cancel"></span>
     <div class="wrapper">
       <b-container class="bv-example-row">
          
         <b-row>
           <b-col class="mainTitle" md="12" sm="12">
             <p>
-              Invite people to to an application as
-              <b>displine</b>
+              Invite people to  an application as<br>
+              <b>Director of discipline</b>
             </p>
           </b-col>
         </b-row>
                 <b-row class="displineInfo">
-          <b-col class="leftSide" sm="12" md="4">
+          <b-col class="leftSide" sm="12" md="5">
             <label for="name">Name</label>
-            <input type="text" placeholder="displine Name" />
+            <input type="text" placeholder="Discipline Name" />
           </b-col>
-          <b-col class="rightSide" sm="12" md="4">
+          <b-col class="rightSide" sm="12" md="5">
             <label for="email">Email</label>
-            <input type="email" placeholder="displine email"/>
-          </b-col>
-              
-          <b-col md="4" sm="12" class="addClass" ref="drpdown">
-            <b-dropdown
-              id="dropdown-left"
-              offset="-50"
-              class="profileItem"
-              variant="link"
-              no-caret
-              size="sm"
-            >
-              <template slot="button-content">
-                <p>Add class <i class="fa fa-caret-down"></i></p>
-              </template>
-              <div class="option">
-                <input id="search" size="sm" :placeholder="placeholder"  v-model="search"/>
-              </div>
-              <b-dropdown-divider></b-dropdown-divider>
-              <div class="classItems">
-                <div class="classList">
-     
-                  <div class="items" :id="'class'+index" v-for="(classDet,index) in filteredClasses" :key="index">
-                    <span :style="{background:classDet.logo}"></span>
-                    <p class="class_name">{{classDet.name}}</p>
-                    <p class="code">@{{classDet.code}}</p>
-                  </div>
-                </div>
-              </div>
-                <div class="option">
-                  <button>Add</button>
-                  <button @click="$refs.drpdown.click(),search=''">Cancel</button>
-                </div>
-            </b-dropdown>
-          </b-col>          
+            <input type="email" placeholder="Discipline email"/>
+          </b-col>              
+            
         </b-row> 
 
-        <b-row class="displineInfo" v-for="(displine,index) in displine" :id="'data'+index" :key="index">
-          <b-col class="leftSide" sm="12" md="4">
+        <b-row class="displineInfo" v-for="(displine,index) in displines" :id="'data'+index" :key="index">
+          <b-col class="leftSide" sm="12" md="5">
             <label for="name">Name</label>
             <input type="text" placeholder="displine Name" />
           </b-col>
-          <b-col class="rightSide" sm="12" md="4">
+          <b-col class="rightSide" sm="12" md="5">
             <label for="email">Email</label>
             <input type="email" placeholder="displine email" />
           </b-col>
-          <b-col md="4" class="addClass" sm="12">
-            <b-dropdown
-              id="dropdown-left"
-              offset="-50"
-              class="profileItem"
-              variant="link"
-              no-caret
-              size="sm"
-            >
-              <template slot="button-content">
-                <p>Add class <i class="fa fa-caret-down"></i></p>
-              </template>
-              <div class="option">
-                <input id="search" v-model="search" size="sm" :placeholder="placeholder" />
-              </div>
-              <b-dropdown-divider></b-dropdown-divider>
-              <div class="classItems">
-                <div class="classList">
-                  <div class="items" :id="'class'+index" v-for="(classDet,index) in filteredClasses" :key="index">
-                    <span :style="{background:classDet.logo}"></span>
-                    <p class="class_name">{{classDet.name}}</p>
-                    <p class="code">@{{classDet.code}}</p>
-                  </div>
-                </div>
-              </div>
-                <div class="option">
-                  <button>Add</button>
-                  <button @click="$refs.drpdown.click(),search=''">Cancel</button>
-                </div>
-            </b-dropdown>
+          <b-col md="2" class="addDiscipline" sm="12">  
             <i class="fa fa-window-close" @click="del(index)" ></i>
-          </b-col>
-          
+          </b-col>          
         </b-row>
         <b-row class="adddispline">
-          <b-col md="12" sm="12">
-            <p @click="displine++">
+          <b-col md="2" sm="12">
+            <p @click="displines++">
               <i class="fa fa-plus-circle"></i>
               <span>Add another</span>
             </p>
@@ -115,13 +53,14 @@
               </p>
               <p>
                 New
-                <b>displine</b> will not automatically join platform.
+                <b>DOD</b> will automatically join platform
+                and start their responsability
               </p>
             </div>
           </b-col>
           <b-col md="5" sm="12">
             <div class="create">
-              <button>Send Notifications</button>
+              <button>Send Invitations</button>
             </div>
           </b-col>
         </b-row>
@@ -132,39 +71,13 @@
 <script>
 export default {
   data() {
-    return {     
-      search:'',
-      classes: [
-        {
-          name: "S6 MEG",
-          code: "MATH456",
-          logo: "blue"
-        },
-        {
-          name: "S4 CEL",
-          code: "CE786",
-          logo: "violet"
-        }
-      ],
-      displine:1,
-      placeholder:"\uf002 search a class ..."
+    return { 
+      image:'',
+      displines:1,
     }
   },
    computed: {
-    filteredClasses() {
-        return this.classes
-          .filter(item => {
-            return (
-              item.name.toLowerCase().includes(
-                this.search.toLowerCase()
-              ) ||
-              item.code.toLowerCase().includes(
-                this.search.toLowerCase()
-              )
-                           
-            )            
-          })
-      }
+    
    },
   methods: {
     imageChange(e) {
@@ -174,6 +87,9 @@ export default {
     del(a){
         var data = "data"+a
         document.getElementById(data).style="display:none !important"
+    },
+    cancel(){
+      this.$store.dispatch("cancelInvite")
     }
   }
    }

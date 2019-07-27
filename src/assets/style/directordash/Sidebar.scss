@@ -1,0 +1,197 @@
+.sidebar {
+    color: white;
+    position: relative;
+    height: 100vh;
+  }
+ 
+  .sidebar .sidebarToggler:hover {
+    color: #bdbdbd;
+  }
+  
+  .sidebarHeader {
+    color: white;
+    padding: 23px 15px 15px;
+    border-bottom: 1px solid #cccccc6e;
+    margin-bottom: 25px;
+  }
+  
+  .sidebarHeader img {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -3px;
+  }
+  .sidebarHeader p {
+    font-family: "Arial";
+    font-size: 20px;
+    line-height: 23px;
+    display: inline;
+  }
+  .router-link-exact-active .routeLink{
+    background: #c7c7c745;
+
+  }
+  .routeLink {
+    color: white;
+    height: 35px;
+    padding: 0 0 0 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .routeLink:hover {
+    background: #9c979738;
+  }
+  .routeLink .home_ico {   
+      background:url("../../../assets/img/home.png") no-repeat;
+      background-size: cover;
+      width:20px;
+      height:20px;
+      display: inline-flex;
+      position: relative;
+      top: 4px;
+    
+  }
+  .routeLink .class_ico {   
+    background:url("../../../assets/img/class.png") no-repeat;
+    background-size: cover;
+    width:20px;
+    height:20px;
+    display: inline-flex;
+    position: relative;
+    top: 4px;
+  
+}
+  .sidebarLink {
+    text-decoration: none;
+    color: white;
+  }
+
+  .sidebarLink:hover {
+    text-decoration: none;
+  }
+  .routeLink p {
+    display: inline;
+    font-family: "Poppins","sans-serif";
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .companyItems
+{
+    padding: 0 20px 0 20px;
+    color: #646f79;
+    position: relative;
+    top:100px
+
+  }
+  .companyItems .more
+{
+    font-family: Arial;
+    font-size: 13px;
+    line-height: 15px;
+    cursor: pointer;
+    margin-top: 11px;
+  }
+  .ListTitle {
+    height: 36px;
+    padding-top: 10px;
+    cursor: pointer;
+
+  }
+  
+  .mainTitle {
+    font-family: Arial;
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .ListTitle:hover {
+    .mainTitle {
+      color: #bdbdbd;
+    }
+  
+    i {
+      color: #bdbdbd;
+    }
+  }
+  .companyItems .more:hover{
+    color: #bdbdbd;
+  }
+
+  .companyItems .items {
+    padding-left: 9px;
+    padding-right: 9px;
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: 30px;
+    grid-template-columns:  1fr 17px;
+    grid-template-areas: "company badge";
+  }
+  .companyItems .items:hover
+ {
+    background: #c7c7c745;
+  }
+  
+  .companyItems .items span {
+    grid-area: badge;
+    height: 18px;
+    width: 18px;
+    border-radius: 15%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 1px;
+    top: 5px;
+    font-size: 11px;
+    color: white;
+    background: #2f75c1;
+  }
+  .companyItems .items p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    color: white;
+    grid-area: company;
+    position: relative;
+    top: 6px;
+  }
+
+  .companyItems .all,
+  .schoolItems .all {
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    text-decoration: none;
+    color: #d5dce0;
+    cursor: pointer;
+  }
+  .companyItems .all:hover{
+    color: #bdbdbd;
+  }
+  .companyItems .ListTitle span {
+    background: url("../../../assets/img/plus.png") no-repeat;
+    background-size: cover;
+    width:13px;
+    height:13px;
+    display: inline-flex;
+    position: absolute;
+    top: 11px;
+    right:30px;
+  }
+  
+
+
+  @media (max-width: 865px) {
+    
+    .sidebar {
+      margin-left: -195px;
+    }
+
+    
+  }
+  
+  

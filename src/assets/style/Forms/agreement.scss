@@ -1,0 +1,114 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+  .agreement_container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-rows: 56px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "agreement_nav"
+      "agreement_Content";
+  
+    /* navigation */
+    .agreement_nav {
+      grid-area: agreement_nav;
+      padding: 0 30px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+  
+    .agreement_nav .icon img {
+      width: 100%;
+    }
+  
+    .agreement_nav p {
+      font-family: Arial;
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: 600;
+      position: absolute;
+      left: 80px;
+      top: 20px;
+    }
+    .agreement_nav .icon {
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      top: 6px;
+      left: 29px;
+    }
+  
+    /* login container */
+    .agreement_Content {
+      background-color:#f6f6f6;
+      grid-area: agreement_Content;
+      padding-top: 45px;
+    }
+    .cardform {
+      margin: auto;
+      width: 40%;
+      background: #ffffff;
+      border: 1px solid #dcdee2;
+      box-sizing: border-box;
+      box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px 0 30px 0;
+      }
+    
+    .content {
+      width: 80%;
+      margin: auto;
+      font-family: "Poppins","sans-serif";
+      .icon_container{
+          display:flex;
+          width:100px;
+          height:100px;
+          margin: auto;
+          .agree_icon{
+            width:100%;
+            height:100%;
+            background:url("../../assets/img/agreement.png") no-repeat;
+            background-size:cover;
+          }
+          
+    }
+     .Title .row:nth-child(2) .mainTitle{
+            text-align: center;
+            font-weight: bold;
+          }
+    .row:nth-child(2){
+            text-align: center;
+          }
+    .row:nth-child(3){
+        text-align: center;   
+        .accept{
+            background: #2F75C1;
+            border-radius: 4px;
+            border:none;
+            color:white;
+            font-size:16px;
+            width:100%;
+            height:35px;
+            font-family:'Poppins','sans-serif';
+      };
+      .decline{
+        box-shadow: 0px 0px 3px #2F75C1;
+        background:white ;
+        border-radius: 4px;
+        border:none;
+        color: #2F75C1;
+        border:1px solid #2F75C1;
+        font-size:16px;
+        width:100%;
+        height:35px;
+        font-family:'Poppins','sans-serif';
+
+      }
+    }
+    }
+  }

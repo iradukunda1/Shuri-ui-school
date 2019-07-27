@@ -1,0 +1,98 @@
+
+.team_members_container{ 
+    background: #02113c66;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+  .member_container{
+    height: 100vh;
+    background: white;
+    position: absolute;
+    right: 0;
+    width:270px;
+  }
+    .main_title {
+      font-family: "Poppins", "sans-serif";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 15px 50px 0;
+      width:100%; 
+      height:60px;
+      position:relative;
+      text-align:center;
+      .fa-close{
+        color:grey;
+        position:absolute;
+        left:10px;
+        font-size: 25px;
+        cursor:pointer;
+        &:hover{
+         color:lightgrey;
+        }
+      }    
+      .moreOpt{
+        position: absolute;
+        right: 27px;
+        top: 10px;
+        .caret{
+        color:black
+        }
+      }   
+
+  }
+  .search{
+    border:1px solid lightgrey;
+    width:100%;
+    height:40px;
+    input{
+      width:100%;
+      padding-left:10px;
+      border:1px solid lightgrey;
+      height:100%;
+    }
+  } 
+  .team_members {
+  .team_membersList {
+    display: grid;   
+    padding: 12px 10px 0;    
+    grid-template-columns: 50px 1fr 30px;
+    grid-template-rows: 22px 25px;
+    grid-template-areas:
+      "memberLogo memberName seeMore"
+      "memberLogo role .";
+    cursor: pointer;
+  }
+
+  
+
+  .list:hover {
+    background: #bfb9b970;
+  }
+  .memberLogo {
+    grid-area: memberLogo;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
+  .memberName {
+    grid-area: memberName;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .role {
+    grid-area: role;
+    font-family: "Poppins", "sans-serif";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #9CA6AF;
+  }}
+
+
+
+}

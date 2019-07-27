@@ -1,13 +1,13 @@
 <template>
   <div class="newClass">
-    <i class="fa fa-close"></i>
+    <span class="closeModal" @click="cancel"></span>
     <div class="wrapper">
       <b-container class="bv-example-row">
          
         <b-row>
           <b-col class="mainTitle" md="12" sm="12">
             <p>
-              Invite people to to an application as
+              Invite people to an application as
               <b>Teacher</b>
             </p>
           </b-col>
@@ -15,7 +15,7 @@
                 <b-row class="teacherInfo">
           <b-col class="leftSide" sm="12" md="4">
             <label for="name">Name</label>
-            <input type="text" placeholder="Teacher Name" />
+            <input type="search" placeholder="Teacher Name" />
           </b-col>
           <b-col class="rightSide" sm="12" md="4">
             <label for="email">Email</label>
@@ -35,7 +35,7 @@
                 <p>Add class <i class="fa fa-caret-down"></i></p>
               </template>
               <div class="option">
-                <input id="search" size="sm" :placeholder="placeholder"  v-model="search"/>
+                <input id="search" type="search" size="sm" :placeholder="placeholder"  v-model="search"/>
               </div>
               <b-dropdown-divider></b-dropdown-divider>
               <div class="classItems">
@@ -121,7 +121,7 @@
           </b-col>
           <b-col md="5" sm="12">
             <div class="create">
-              <button>Send Notifications</button>
+              <button>Send Invitations</button>
             </div>
           </b-col>
         </b-row>
@@ -134,6 +134,7 @@ export default {
   data() {
     return {     
       search:'',
+      image:'',
       classes: [
         {
           name: "S6 MEG",
@@ -174,6 +175,9 @@ export default {
     del(a){
         var data = "data"+a
         document.getElementById(data).style="display:none !important"
+    },
+    cancel(){
+      this.$store.dispatch("cancelInvite")
     }
   }
    }

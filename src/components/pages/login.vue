@@ -1,8 +1,15 @@
  <template>
- <div class="schoolLogin">
+<div class="dashlogin">
+        <div class="loginNav">
+      <div class="icon">
+        <img src="vue-logo.png" />
+      </div>
+      <p>ShuriDash</p>
+    </div>
+    <div class="loginContent">
       <p class="loginTitle">Log In</p>
       <div class="formcard">
-        <form class="form" @submit.prevent>
+        <form class="form" @submit.prevent="login()">
           <div class="emailArea">
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="example@email.com" class="email" />
@@ -18,20 +25,24 @@
             <input type="checkbox" class="box" />
             <p class="stayText">Stay logged in</p>
           </div>
-          <router-link to="#">
             <button class="submit">Log In</button>
-          </router-link>
         </form>
-    </div>
+      </div>
+      </div>
     </div>
 </template>
 <script >
 export default {
   data() {
     return {};
+  },
+  methods:{
+    login(){
+      this.$router.push("/home")
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
-@import "../../assets/style/schoollogin.scss";
+@import "../../assets/style/Forms/login.scss";
 </style>

@@ -21,7 +21,7 @@ ne sit ridens lobortis, at vim augue
                 <i class="fa fa-circle"></i>
             </div>
             <div class="next">
-                <button @click="gotoDashboard =!gotoDashboard"><span>Next</span></button>
+                <button @click="gotoDashboard =!gotoDashboard"><span>Continue</span></button>
             </div>
             <div class="skip">
                 <button @click="gotoDashboard =!gotoDashboard"><span>Skip</span></button>
@@ -41,5 +41,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "../../assets/style/nextslide_initialEntery.scss";
+@import "../../assets/style/nextslide_initialEntry.scss";
 </style>

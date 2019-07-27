@@ -34,15 +34,12 @@
   <nextslide v-else ></nextslide>
 </template>
 <script>
-import nextslide from "./nextslide_initialEntery.vue";
+import nextslide from "./nextslide_initialEntry.vue";
 export default {
     data(){
         return{
             firstSlide:true
         }
-    },
-    mounted(){
-        console.log(this.firstSlide)
     },
     components:{
         nextslide
@@ -50,5 +47,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../assets/style/initialEntery.scss";
+@import "../../assets/style/initialEntry.scss";
 </style>

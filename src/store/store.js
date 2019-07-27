@@ -7,26 +7,94 @@ const store = new Vuex.Store({
   state: {
     invites: {
       inviteTeacher:false,
-      inviteDirector:false,
-      inviteStudent:false,
+      inviteDispline:false,
+      inviteTransport:false,
+    },
+    creates:{
+      creatingClass:false,
+    },
+    members:{
+      view_employee_profile:false,
+      view_members:false
     }
   },
 
   mutations: {
-    invitingEmployees(state) {
-      state.inviteinviteTeacher=true,
-      state.inviteinviteDirector=true,
-      state.invite.inviteStudent=true    
+    inviteDispline(state) {
+      state.invites.inviteTeacher=false,
+      state.invites.inviteDispline=true,
+      state.invites.inviteTransport=false
+
     },
+    inviteTeacher(state) {
+      state.invites.inviteTeacher=true,
+      state.invites.inviteDirector=false,
+      state.invites.inviteTransport=false
+
+    },
+    inviteTransport(state) {
+      state.invites.inviteTeacher=false,
+      state.invites.inviteDispline=false,
+      state.invites.inviteTransport=true
+    },
+    cancelInvite(state) {
+      state.invites.inviteTeacher=false,
+      state.invites.inviteDispline=false,
+      state.invites.inviteTransport=false,
+      state.creates.creatingClass=false
+
+
+    },
+    creatingClass(state){
+      state.creates.creatingClass=true
+      
+    },
+    view_employee_profile(state){
+      state.members.view_employee_profile=true
+    },
+    view_members(state){
+      state.members.view_members=true
+    },
+    cancel_members(state){
+      state.members.view_members=false
+    },
+    cancel_employee_profile(state){
+      state.members.view_employee_profile=false
+    }
   },
   actions: {
-    invitingEmployees({ commit }) {
-      commit("invitingEmployees");
+    inviteDispline({commit}) {
+      commit("inviteDispline");
+    },
+    inviteTeacher({commit}){
+      commit("inviteTeacher")
+    },
+    inviteTransport({commit}){
+      commit("inviteTransport")
+    },
+    cancelInvite({commit}){
+      commit("cancelInvite")
+    },
+    creatingClass({commit}){
+      commit("creatingClass")
+    },
+    view_employee_profile({commit}){
+     commit("view_employee_profile")
+    },
+    view_members({commit}){
+      commit("view_members")
+    },
+    cancel_employee_profile({commit}){
+      commit("cancel_employee_profile")
+    },
+    cancel_members({commit}){
+      commit("cancel_members")
     }
-  
   },
   getters: {
-    inviteEmploy: state => state.invites
+    invite: state => state.invites,
+    creates: state => state.creates,
+    members: state => state.members
   }
 });
 export default store;
