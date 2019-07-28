@@ -1,8 +1,16 @@
  <template>
+ <div class="dashlogin">
+        <div class="loginNav">
+      <div class="icon">
+        <img src="vue-logo.png" />
+      </div>
+      <p>ShuriDash</p>
+    </div>
+    <div class="loginContent">
   <div class="cardform">
     <div class="Tittle">
       <p class="text">
-        Yay! you’re official a Shuri friend.
+        Yay! <span></span> you’re official a Shuri friend.
         Here are useful information required to get started
       </p>
     </div>
@@ -50,8 +58,8 @@
         <label for="Password">Password</label>
         <input type="password" />
         <p class="legal">
-          By clicking Continue, you agree to our
-          <router-link to="#" class="term">Terms of Use</router-link>and our
+          By clicking Continue, you agree to our 
+          <router-link to="#" class="term">Terms of Use </router-link>and our
           <router-link to="#" class="term">Privacy Policy</router-link>
         </p>
         <button>
@@ -59,6 +67,8 @@
         </button>
       </form>
     </div>
+  </div>
+  </div>
   </div>
 </template>
 <script>
@@ -68,6 +78,30 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+ select{
+    width:100%;
+    height:35px;
+    border-radius:7px;
+    border:1px solid rgb(226, 223, 223);
+    cursor:pointer;
+    -webkit-appearance:none;
+    background:url("../../assets/img/arrow_down.png") no-repeat right 6px;
+    background-size:20px;
+    padding:0 10px;
+    &:invalid{
+        color:lightgrey
+    }
+    option{
+        color:black;
+        &[disabled]{
+            background: #b8b7b7;
+            color:rgb(87, 87, 87)
+        }
+    }
+}
+</style>
+
 <style lang="scss" scoped>
-@import "../../assets/style/shuriProviderinfo.scss";
+@import "../../assets/style/Forms/registration.scss";
 </style>

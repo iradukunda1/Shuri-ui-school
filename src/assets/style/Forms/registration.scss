@@ -4,6 +4,52 @@ body {
   padding: 0;
   margin: 0;
 }
+.dashlogin {
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  grid-template-rows: 55px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "loginNav"
+    "loginContent";
+
+  /* navigation */
+  .loginNav {
+    grid-area: loginNav;
+    padding: 0 30px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  .loginNav .icon img {
+    width: 100%;
+  }
+
+  .loginNav p {
+    font-family: Arial;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 600;
+    position: absolute;
+    left: 80px;
+    top: 20px;
+  }
+  .loginNav .icon {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 6px;
+    left: 29px;
+  }
+
+  /* login container */
+  .loginContent {
+    background-color:#f6f6f6;
+    grid-area: loginContent;
+    padding:15px 0;
+  }
   .cardform {
     margin: auto;
     width: 40%;
@@ -13,11 +59,12 @@ body {
     box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px 0 30px 0;
+    }
   .Tittle {
     margin: auto;
     width: 60%;
     .welcomeTittle {
-      font-family: "Roboto", sans-serif;
+      font-family: "Poppins", sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 28px;
@@ -25,35 +72,35 @@ body {
       color: #484848;
     }
     .text {
-      font-family: "Roboto", sans-serif;
+      font-family: "Poppins", sans-serif;
       font-style: normal;
       font-weight: 300;
       font-size: 17px;
       line-height: 21px;
       text-align: center;
       color: #000000;
+      span{
+        background:url("../../assets/img/happy.png") no-repeat;
+        background-size: cover;
+        width:20px;
+        height:20px;
+        display: inline-flex;
+        position: relative;
+        top: 4px;
+      }
     }
   }
   .form {
     width: 60%;
     margin: auto;
 
-    .gender {
-      background: #ffffff;
-      border: 1px solid #c5c7cb;
-      box-sizing: border-box;
-      border-radius: 3px;
-      width: 100%;
-      height: 35px;
+    select {      
+      border-radius: 3px !important;
+      height: 35px !important;
+      border: 1px solid #c5c7cb !important;
+
     }
-    .Country {
-      background: #ffffff;
-      border: 1px solid #c5c7cb;
-      box-sizing: border-box;
-      border-radius: 3px;
-      width: 100%;
-      height: 35px;
-    }
+   
     input {
       background: #ffffff;
       border: 1px solid #c5c7cb;
@@ -70,38 +117,21 @@ body {
       grid-template-areas: "day month year";
       height: 35px;
       grid-gap: 10px;
-    }
-    select {
-      border-radius: 5px;
-      border: 1px solid #c5c7cb;
-      padding-left: 9px;
-      font-family: sans-serif;
-      font-size: 14px;
-      -webkit-appearance: menulist-button;
-      color: black;
-      cursor: pointer;
-    }
-    .dateSelectors select option[disabled] {
-      color: #868383;
-      background: #b5b3b3;
-    }
+    } 
+ 
     .dateSelectors select:nth-child(1) {
       grid-area: day;
     }
-    select:invalid {
-      color: #c4c4c4;
-    }
+  
     .dateSelectors select:nth-child(2) {
       grid-area: month;
     }
     .dateSelectors select:nth-child(3) {
       grid-area: year;
     }
-    select option {
-      color: black;
-    }
+
     label {
-      font-family: "Roboto";
+      font-family: "Poppins";
       font-style: normal;
       font-weight: normal;
       font-size: 13px;
@@ -111,7 +141,7 @@ body {
       margin: 8px 0 0;
     }
     .legal {
-      font-family: "Roboto";
+      font-family: "Poppins";
       font-style: normal;
       font-weight: normal;
       font-size: 13px;
@@ -120,7 +150,7 @@ body {
       margin: 5px 0;
     }
     .continue {
-      font-family: "Roboto";
+      font-family: "Poppins";
       font-style: normal;
       font-weight: 500;
       font-size: 14px;

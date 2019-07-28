@@ -20,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 
-.directorNavbar {
+.navbar {
   background-color: white;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   border-bottom: 1px #d7d9de70 solid;
@@ -33,24 +33,8 @@ body {
   width: 100%;
 }
 
-.directorNavbar p {
-  color: white;
-  font-family:'Roboto', sans-serif;
-  font-size: 20px;
-  line-height: 23px;
-  font-weight: 600;
-  position: absolute;
-  left: 105px;
-  top: 23px;
-}
-.directorNavbar .icon {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 15px;
-  left: 45px;
-}
-.directorSidebar {
+
+.sidebar {
   background-color: #151b26;
   grid-area: sidebar;
   overflow: auto;
@@ -62,10 +46,6 @@ body {
   background-color: white;
   grid-area: content;
   overflow: auto;
+  background:#eaeaea;
 }
-@media screen and (max-width:800px){
-    .dashboardLayout {
-      grid-template-columns: auto calc(100vw - 44px);
-    
-    }
-    }
+

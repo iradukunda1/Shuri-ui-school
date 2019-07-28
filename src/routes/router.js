@@ -1,71 +1,71 @@
 import Vue from "vue";
 import vueRouter from "vue-router";
-import schoolFormlayout from "../components/layout/formsLayout/schoolformLayout.vue";
-import directorDashboardLayout from "../components/layout/DirectorDashboard/directorDashboardLayout.vue";
-import shuriSchoolLogin from "../components/pages/schoollogin.vue";
-import shurirepersenter from "../components/pages/shuriProviderinfo.vue";
-import verifyemail from "../components/pages/verifyemail.vue";
-import employerProfile from "../components/pages/employerProfile.vue";
-import EmployeeLogged from "../components/pages/EmployeeLogged.vue";
-import inviteteacher from "../components/pages/inviteTeacher.vue";
-import invitedispline from "../components/pages/inviteDispline.vue";
-import invitetransport from "../components/pages/inviteTransportMananger.vue";
+import Dashboard_Layout from "../components/layout/dashboard/DashboardLayout.vue";
+import shuri_School_Login from "../components/pages/login.vue";
+import Registration from "../components/pages/registration.vue";
+import verify_Email from "../components/pages/verifyEmail.vue";
+import employee_Profile from "../components/pages/employeeProfile.vue";
+import employee_Logged from "../components/pages/employeeLogged.vue";
+import userAgreement from "../components/pages/agreement.vue";
+import home from "../components/pages/home.vue";
+import members from "../components/pages/members.vue";
+
+
+
 Vue.use(vueRouter);
 
 const router = new vueRouter({
     mode: "history",
     routes: [
         {
+            path: "/shuriSchool",
+            redirect:"/home",
+            component: Dashboard_Layout,
+            children:[
+                {
+                name: "Home",
+                component:home,
+                path: "/home" 
+            },
+            {
+                name: "AllMembers",
+                component:members,
+                path: "/all_members" 
+            }
+        ]
+        },
+
+        {
+            name: "Login to Shuri School",
             path: "/",
-            component: schoolFormlayout,
-            children: [
-                {
-                    name: "loginschool",
-                    path: "/schoollogin",
-                    component: shuriSchoolLogin
-                },
-                {
-                    name: "schoolinformation",
-                    path: "/schoolinfo",
-                    component: shurirepersenter
-                },
-                {
-                    name: "schoolemployerProfile",
-                    path: "/employer",
-                    component: employerProfile
-                },
-                {
-                    name: "schoolVerification",
-                    path: "/verify",
-                    component: verifyemail
-                },
-                {
-                    name: "EmployeeLogged",
-                    path: "/employerlogged",
-                    component: EmployeeLogged
-                },
-            ]
+            component: shuri_School_Login
         },
         {
-            name: "directorDashboard",
-            path: "/director",
-            component: directorDashboardLayout
+            name: "Registration To Shuri School",
+            path: "/registration",
+            component:Registration
         },
         {
-            name: "inviteteacher",
-            path: "/inviteteacher",
-            component: inviteteacher
+            name: "school Employee Profile",
+            path: "/employee",
+            component: employee_Profile
         },
         {
-            name: "invitedispline",
-            path: "/invitedispline",
-            component: invitedispline
+            name: "school Verification",
+            path: "/verify",
+            component: verify_Email
         },
         {
-            name: "invitetransport",
-            path: "/invitetransport",
-            component: invitetransport
+            name: "Employee Logged",
+            path: "/logged",
+            component: employee_Logged
         },
+        {
+            name: "User Agreemeent",
+            path: "/agreement",
+            component: userAgreement
+        },
+     
     ]
 });
 

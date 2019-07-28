@@ -1,0 +1,280 @@
+.sidebar {
+  color: white;
+  display: grid;
+  grid-template-areas: "normal mobile";
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+  position: relative;
+  height: 100vh;
+  
+}
+.normal {
+  grid-area: normal;
+  
+}
+.mobile{
+  display:none
+}
+.sidebar .sidebarToggler:hover {
+  color: #bdbdbd;
+}
+
+.sidebarHeader {
+  color: white;
+  padding: 23px 15px 0;
+  margin-bottom: 17px;
+}
+
+.sidebarHeader img {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: -3px;
+}
+.sidebarHeader p {
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 23px;
+  display: inline;
+}
+
+.sidebar .sidebarToggler {
+  font-size: 25px;
+  color: #ececec63;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top:15px;
+  z-index: 2;
+}
+.routeLink {
+  color: white;
+  background: #c7c7c745;
+  height: 35px;
+  padding: 0 0 0 20px;
+  margin-bottom: 70px;
+  cursor: pointer;
+}
+.routeLink:hover {
+  background: #9c979738;
+}
+.routeLink i {
+  display: inline;
+  font-size: 25px;
+  position: relative;
+  top: 3px;
+}
+.sidebarLink {
+  text-decoration: none;
+  color: white;
+}
+.sidebarLink_mobile {
+  width: 100%;
+  text-align: center;
+  color: white;
+  grid-area: sidebarLink_mobile
+}
+.sidebarLink_mobile_home {
+  width:100%;
+  margin-bottom: 33px;
+}
+.home_icon{
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-size: 25px;
+  background: #c7c7c745;
+ 
+}
+.sidebarLink_mobile_company {
+  width:100%;
+  margin-top: 33px;
+}
+.company_icon{
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-size: 23px;
+  background: #c7c7c745;
+ 
+}
+.sidebarLink_mobile_school{
+  width:100%;
+  margin-bottom: 8px;
+}
+.school_icon{
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-size: 23px;
+  background: #c7c7c745;
+}
+
+.sidebarLink_mobile_home:hover {
+  text-decoration: none;
+  background: #9c979738;
+
+}
+.sidebarLink:hover {
+  text-decoration: none;
+}
+.routeLink p {
+  display: inline;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.companyItems,
+.schoolItems {
+  border-top: 1px solid #5f6567;
+  padding: 0 20px 0 20px;
+  color: #646f79;
+}
+.companyItems .more,
+.schoolItems .more {
+  font-family: Arial;
+  font-size: 13px;
+  line-height: 15px;
+  cursor: pointer;
+  margin-top: 11px;
+}
+.ListTitle {
+  height: 36px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.mainTitle {
+  font-family: Arial;
+  font-size: 13px;
+  line-height: 15px;
+}
+.ListTitle:hover {
+  .mainTitle {
+    color: #bdbdbd;
+  }
+
+  i {
+    color: #bdbdbd;
+  }
+}
+.companyItems .more:hover,
+.schoolItems .more:hover {
+  color: #bdbdbd;
+}
+.schoolItems .items {
+  padding-left: 9px;
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 30px;
+  grid-template-columns: 10px 1fr;
+  grid-template-areas: "logo school";
+}
+
+.companyItems .items {
+  padding-left: 9px;
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 30px;
+  grid-template-columns: 10px 1fr;
+  grid-template-areas: "logo company";
+}
+.companyItems .items:hover,
+.schoolItems .items:hover {
+  background: #c7c7c745;
+}
+
+.companyItems .items span {
+  grid-area: logo;
+  height: 8px;
+  width: 8px;
+  border-radius: 15%;
+  position: relative;
+  top: 10px;
+}
+.companyItems .items p {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: white;
+  padding-left: 10px;
+  grid-area: company;
+  position: relative;
+  top: 6px;
+}
+.schoolItems .items span {
+  height: 8px;
+  width: 8px;
+  border-radius: 15%;
+  position: relative;
+  top: 10px;
+  grid-area: logo;
+}
+.schoolItems .items p {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  padding-left: 10px;
+  grid-area: school;
+  position: relative;
+  top: 6px;
+}
+
+.companyItems .all,
+.schoolItems .all {
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  text-decoration: none;
+  color: #d5dce0;
+  cursor: pointer;
+}
+.companyItems .all:hover,
+.schoolItems .all:hover {
+  color: #bdbdbd;
+}
+.schoolItems i,
+.companyItems i {
+  position: absolute;
+  top: 7px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.schoolItems,
+.companyItems {
+  position: relative;
+}
+.mobile {
+  border-left: 1px solid rgba(211, 211, 211, 0.49);
+  grid-area: mobile;
+  position: relative;
+  width:50px;
+  display: none;
+  grid-template-areas: 
+  "."
+  "sidebarLink_mobile"
+  ;
+  grid-template-columns:1fr;
+  grid-template-rows:70px 1fr;
+}
+@media (max-width: 865px) {
+  
+  .sidebar {
+    margin-left: -195px;
+  }
+  .mobile {
+    display:grid
+  }
+  
+}
+
