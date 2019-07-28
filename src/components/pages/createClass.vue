@@ -58,16 +58,15 @@ export default {
   },
   methods: {
     imageChange(e) {
-      this.image = e.target.files[0];      
+      this.image = e.target.files[0];
       this.$refs.imageSource.src = URL.createObjectURL(this.image);
     },
-    cancel(){
-      this.$store.dispatch("cancelInvite")
+    cancel() {
+      this.$store.dispatch("cancelInvite");
     }
   }
 };
 </script>
 <style lang="scss" scoped>
-@import '../../assets/style/createClass.scss'
-
+@import "../../assets/style/createClass.scss";
 </style>

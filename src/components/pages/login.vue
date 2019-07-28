@@ -1,6 +1,6 @@
  <template>
-<div class="dashlogin">
-        <div class="loginNav">
+  <div class="dashlogin">
+    <div class="loginNav">
       <div class="icon">
         <img src="vue-logo.png" />
       </div>
@@ -25,20 +25,20 @@
             <input type="checkbox" class="box" />
             <p class="stayText">Stay logged in</p>
           </div>
-            <button class="submit">Log In</button>
+          <button class="submit">Log In</button>
         </form>
       </div>
-      </div>
     </div>
+  </div>
 </template>
 <script >
 export default {
   data() {
     return {};
   },
-  methods:{
-    login(){
-      this.$router.push("/home")
+  methods: {
+    login() {
+      this.$router.push("/home");
     }
   }
 };

@@ -3,27 +3,32 @@
     <span class="closeModal" @click="cancel"></span>
     <div class="wrapper">
       <b-container class="bv-example-row">
-         
         <b-row>
           <b-col class="mainTitle" md="12" sm="12">
             <p>
-              Invite people to an application <br>as
+              Invite people to an application
+              <br />as
               <b>Transport manager</b>
             </p>
           </b-col>
         </b-row>
-                <b-row class="TransportInfo">
+        <b-row class="TransportInfo">
           <b-col class="leftSide" sm="12" md="5">
             <label for="name">Name</label>
             <input type="text" placeholder="Transport Name" />
           </b-col>
           <b-col class="rightSide" sm="12" md="5">
             <label for="email">Email</label>
-            <input type="email" placeholder="Transport email"/>
-          </b-col>          
-        </b-row> 
+            <input type="email" placeholder="Transport email" />
+          </b-col>
+        </b-row>
 
-        <b-row class="TransportInfo" v-for="(Transport,index) in Transports" :id="'data'+index" :key="index">
+        <b-row
+          class="TransportInfo"
+          v-for="(Transport,index) in Transports"
+          :id="'data'+index"
+          :key="index"
+        >
           <b-col class="leftSide" sm="12" md="5">
             <label for="name">Name</label>
             <input type="text" placeholder="Transport Name" />
@@ -33,10 +38,8 @@
             <input type="email" placeholder="Transport email" />
           </b-col>
           <b-col md="2" class="addTransporter" sm="12">
-            
-            <i class="fa fa-window-close" @click="del(index)" ></i>
+            <i class="fa fa-window-close" @click="del(index)"></i>
           </b-col>
-          
         </b-row>
         <b-row class="addTransport">
           <b-col md="12" sm="12">
@@ -54,7 +57,7 @@
               </p>
               <p>
                 New
-                <b>Transport manager</b> 
+                <b>Transport manager</b>
                 will automatically join platform
                 and start their responsability.
               </p>
@@ -73,44 +76,42 @@
 <script>
 export default {
   data() {
-    return {     
-      image:'',     
-      Transports:1,
-      placeholder:"\uf002 search a class ..."
-    }
+    return {
+      image: "",
+      Transports: 1,
+      placeholder: "\uf002 search a class ..."
+    };
   },
-   computed: {
-    
-   },
+  computed: {},
   methods: {
     imageChange(e) {
       this.image = e.target.files[0];
       this.$refs.imageSource.src = URL.createObjectURL(this.image);
     },
-    del(a){
-        var data = "data"+a
-        document.getElementById(data).style="display:none !important"
+    del(a) {
+      var data = "data" + a;
+      document.getElementById(data).style = "display:none !important";
     },
-    cancel(){
-      this.$store.dispatch("cancelInvite")
+    cancel() {
+      this.$store.dispatch("cancelInvite");
     }
   }
-   }
+};
 </script>
 <style>
-.closeModal{
-        background:url("../../assets/img/plus.png") no-repeat;
-        background-size:cover;        
-        height:20px;
-        width:20px;
-        position: absolute;
-        right: 30%;
-        top: 5%;
-        transform: rotate(45deg);
-        cursor: pointer;
+.closeModal {
+  background: url("../../assets/img/plus.png") no-repeat;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 30%;
+  top: 5%;
+  transform: rotate(45deg);
+  cursor: pointer;
 }
 </style>
 
 <style lang="scss" scoped>
-@import '../../assets/style/inviteTransportMananger.scss'
+@import "../../assets/style/inviteTransportMananger.scss";
 </style>

@@ -1,60 +1,52 @@
 <template>
   <div class="sidebar" :style="hideToggle.hideSidebar">
-      <div class="sidebarHeader">
-        <img :src="logo" alt="Logo" />&nbsp;
-        <p>Shuri School</p>
-      </div>
-
-      <router-link to="/home" class="sidebarLink">
-        <div class="routeLink">
-          <span class="home_ico"></span>&nbsp;&nbsp;
-          <p>Home</p>
-        </div>
-      </router-link>
-      <router-link to="#" class="sidebarLink">
-        <div class="routeLink">
-          <span class="class_ico"></span>&nbsp;&nbsp;
-          <p>All classes</p>
-        </div>
-      </router-link>
-
-      <div class="companyItems">
-        <div class="ListTitle" v-b-toggle.collapse-3 @click="showCompanies=!showCompanies">
-          <p class="mainTitle">
-            Bus Company
-            <span>
-              
-            </span>
-          </p>
-        </div>
-        <b-collapse visible id="collapse-3">
-          <div class="companyList">
-            <div
-              class="items"
-              v-for="(company,index) in companies"
-              :key="index"
-             
-            >
-              <span>{{company.badge}}</span>
-              <p>{{company.name}}</p>
-            </div>
-          </div>
-          <b-collapse id="collapse-6">
-            <div>
-              <p class="all">All Items</p>
-              <p class="more" v-b-toggle.collapse-6 @click="showAllCompanies=false">Show Less</p>
-            </div>
-          </b-collapse>
-          <p
-            v-show="!showAllCompanies"
-            v-b-toggle.collapse-6
-            class="more"
-            @click="showAllCompanies=true"
-          >Show More</p>
-        </b-collapse>
-      </div>
+    <div class="sidebarHeader">
+      <img :src="logo" alt="Logo" />&nbsp;
+      <p>Shuri School</p>
     </div>
-   
+
+    <router-link to="/home" class="sidebarLink">
+      <div class="routeLink">
+        <span class="home_ico"></span>&nbsp;&nbsp;
+        <p>Home</p>
+      </div>
+    </router-link>
+    <router-link to="#" class="sidebarLink">
+      <div class="routeLink">
+        <span class="class_ico"></span>&nbsp;&nbsp;
+        <p>All classes</p>
+      </div>
+    </router-link>
+
+    <div class="companyItems">
+      <div class="ListTitle" v-b-toggle.collapse-3 @click="showCompanies=!showCompanies">
+        <p class="mainTitle">
+          Bus Company
+          <span></span>
+        </p>
+      </div>
+      <b-collapse visible id="collapse-3">
+        <div class="companyList">
+          <div class="items" v-for="(company,index) in companies" :key="index">
+            <span>{{company.badge}}</span>
+            <p>{{company.name}}</p>
+          </div>
+        </div>
+        <b-collapse id="collapse-6">
+          <div>
+            <p class="all">All Items</p>
+            <p class="more" v-b-toggle.collapse-6 @click="showAllCompanies=false">Show Less</p>
+          </div>
+        </b-collapse>
+        <p
+          v-show="!showAllCompanies"
+          v-b-toggle.collapse-6
+          class="more"
+          @click="showAllCompanies=true"
+        >Show More</p>
+      </b-collapse>
+    </div>
+  </div>
 </template>
 <script >
 export default {
@@ -86,9 +78,9 @@ export default {
     };
   },
   computed: {
-  hideToggle(){
-    return this.$store.getters.sidebar
-  }
+    hideToggle() {
+      return this.$store.getters.sidebar;
+    }
   },
   methods: {
     toggleSidebar() {
@@ -108,11 +100,9 @@ export default {
         this.screenMonitor.sidebarState === "hide" ||
         this.screenMonitor.sidebarState === ""
       ) {
-        
         this.$store.dispatch("finalToggler");
-      } else {        
+      } else {
         this.$store.dispatch("initialToggler");
-        
       }
     },
     screenNormal() {
@@ -135,5 +125,4 @@ export default {
 </style>
 <style lang="scss" scoped>
 @import "../../../assets/style/directordash/Sidebar.scss";
-
 </style>

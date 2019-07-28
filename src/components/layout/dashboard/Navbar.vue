@@ -1,114 +1,116 @@
 <template>
-    
-    <div class="navbar">
-      <div class="routeTitle">
-        <!-- <div class="sidebarToggler" @click="show = !show" v-show="show"> -->
-          <i class="fa fa-bars" @click="hideSidebar" style=" color:black;"></i>
-        <!-- </div> -->
-        <!-- <transition name="slide-fade">
-          <p v-if="show" style="color:red;">bar ! bar!</p>
-        </transition> -->
+  <div class="navbar">
+    <div class="routeTitle">
+      <div class="sidebarToggler" @click="hideSidebar" :style="hideToggle.hideSidebarToggle">
+      <i class="fa fa-bars" style=" color:black;"></i>
       </div>
-       <div class="new">
-        
-        <div class="dropdown"> 
+      <!-- <transition name="slide-fade">
+          <p v-if="show" style="color:red;">bar ! bar!</p>
+      </transition>-->
+    </div>
+    <div class="new">
+      <div class="dropdown">
         <button class="newBtn" @click="dropDownList='display:block'" v-click-outside="closeDrpdwn">
-         <i class="fa fa-plus"></i> <span>New</span>
-       </button>       
+          <i class="fa fa-plus"></i>
+          <span>New</span>
+        </button>
         <ul class="dropdown-menu" :style="dropDownList">
-          <li><a class="dropdown-item" @click="createClass">Class</a></li>
-          <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">invite employee</a>
+          <li>
+            <a class="dropdown-item" @click="createClass">Class</a>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle">invite employee</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" @click="inviteDispline">Director of displine</a></li>
-              <li><a class="dropdown-item" @click="inviteTransport">Transport manager</a></li>        
-              <li><a class="dropdown-item" @click="inviteTeacher">Teacher</a></li>        
+              <li>
+                <a class="dropdown-item" @click="inviteDispline">Director of displine</a>
+              </li>
+              <li>
+                <a class="dropdown-item" @click="inviteTransport">Transport manager</a>
+              </li>
+              <li>
+                <a class="dropdown-item" @click="inviteTeacher">Teacher</a>
+              </li>
             </ul>
           </li>
         </ul>
       </div>
-       
-      </div>
-      <div class="notification">
-      <img src="icons8-notification-40.png" />
-      </div>
-      <div class="profile">
-        <b-dropdown
-          id="dropdown-left"
-          offset="-130"
-          class="profileItem"
-          variant="primary"
-          no-caret
-          size="sm"
-        >
-          <template slot="button-content">My</template>
-          <b-container>
-
-            <b-row class="mybuttonRow">
-              <b-col md="3"  sm="3" class="myLogo">
-            <span class="myProfile"></span>
-
-              </b-col>
-              <b-col md="9"  sm="9" class="myName" >
-     
-            <b>Mugabo Dodos</b>
-
-              </b-col>
-            </b-row>
-
-        </b-container>
-          <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-item>My Profile Settings</b-dropdown-item>
-          <b-dropdown-item @click="$store.dispatch('view_members')">All employees</b-dropdown-item>
-          <b-dropdown-item @click="$router.push('/')">Logout</b-dropdown-item>
-        </b-dropdown>
-      </div>
     </div>
+    <div class="notification">
+      <img src="icons8-notification-40.png" />
+    </div>
+    <div class="profile">
+      <b-dropdown
+        id="dropdown-left"
+        offset="-130"
+        class="profileItem"
+        variant="primary"
+        no-caret
+        size="sm"
+      >
+        <template slot="button-content">My</template>
+        <b-container>
+          <b-row class="mybuttonRow">
+            <b-col md="3" sm="3" class="myLogo">
+              <span class="myProfile"></span>
+            </b-col>
+            <b-col md="9" sm="9" class="myName">
+              <b>Mugabo Dodos</b>
+            </b-col>
+          </b-row>
+        </b-container>
+        <b-dropdown-divider></b-dropdown-divider>
+        <b-dropdown-item>My Profile Settings</b-dropdown-item>
+        <b-dropdown-item @click="$store.dispatch('view_members')">All employees</b-dropdown-item>
+        <b-dropdown-item @click="$router.push('/')">Logout</b-dropdown-item>
+      </b-dropdown>
+    </div>
+  </div>
 </template>
 <script>
-import vClickOutside from 'v-click-outside'
+import vClickOutside from "v-click-outside";
 const clickOutside = {
-   directives: {
-      clickOutside: vClickOutside.directive
-    }
-}; 
+  directives: {
+    clickOutside: vClickOutside.directive
+  }
+};
 export default {
   name: "directorNavbar",
-   mixins:[clickOutside],
+  mixins: [clickOutside],
   data() {
     return {
       show: true,
-      dropDownList:"",
+      dropDownList: ""
     };
   },
-  methods:{
-    closeDrpdwn(){
-      this.dropDownList=""
-    },  
-    openInvite(){
-      this.$refs.inviteBtn.click()
+  methods: {
+    closeDrpdwn() {
+      this.dropDownList = "";
     },
-    inviteDispline(){
-    this.$store.dispatch("inviteDispline");
+    openInvite() {
+      this.$refs.inviteBtn.click();
     },
-    inviteTeacher(){
-    this.$store.dispatch("inviteTeacher");
+    inviteDispline() {
+      this.$store.dispatch("inviteDispline");
     },
-    inviteTransport(){
-    this.$store.dispatch("inviteTransport");
+    inviteTeacher() {
+      this.$store.dispatch("inviteTeacher");
     },
-    createClass(){
-    this.$store.dispatch("creatingClass")
+    inviteTransport() {
+      this.$store.dispatch("inviteTransport");
     },
-    hideSidebar(){
-    this.$store.dispatch("hideSidebar")
-
-    }
-  },
-  computed:{
-    showSidebar(){
-    return this.$store.getters.showSidebar
+    createClass() {
+      this.$store.dispatch("creatingClass");
+    },
+    hideSidebar() {
+      this.$store.dispatch("hideSidebar");
      
-    }
+    }    
+  },
+  computed: {
+    hideToggle() {
+      return this.$store.getters.sidebar
+
+    },
   }
 };
 </script>
@@ -126,7 +128,6 @@ export default {
   transform: translateX(-239px);
   opacity: 0;
 }
-
 </style>
 
 

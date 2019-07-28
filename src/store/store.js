@@ -19,7 +19,12 @@ const store = new Vuex.Store({
     },
    sidebar:{
       hideSidebar:"",
-      showToggle:""
+      showToggle:"",
+      hideSidebarToggle:""
+    },
+    hideToggle:{
+      hidetoggle:"",
+      showtoggle:""
     }
     
   },
@@ -68,11 +73,17 @@ const store = new Vuex.Store({
     },
     hideSidebar(state){
       state.sidebar.hideSidebar="margin-left:-239px",
-      state.sidebar.showToggle="left:0px"
+      setTimeout(()=>{
+        state.sidebar.showToggle="left:0px"
+     },1000),
+     state.sidebar.hideSidebarToggle="display:none"
+      
     },
     showSidebar(state){
+      
       state.sidebar.hideSidebar="margin-left:0",
-      state.sidebar.showToggle="left:-50px"
+      state.sidebar.showToggle="left:-50px",
+      state.sidebar.hideSidebarToggle="display:inline"
     }
   },
   actions: {
@@ -107,14 +118,15 @@ const store = new Vuex.Store({
       commit("hideSidebar")
     },
     showSidebar({commit}){
-      commit("showSidebar")
+      commit("showSidebar"),
+      commit("showToggle")
     }
   },
   getters: {
     invite: state => state.invites,
     creates: state => state.creates,
     members: state => state.members,
-    sidebar: state => state.sidebar
+    sidebar: state => state.sidebar,
   }
 });
 export default store;

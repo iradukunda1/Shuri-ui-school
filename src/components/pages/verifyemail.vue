@@ -1,6 +1,6 @@
  <template>
- <div class="dashlogin">
-        <div class="loginNav">
+  <div class="dashlogin">
+    <div class="loginNav">
       <div class="icon">
         <img src="vue-logo.png" />
       </div>
@@ -39,8 +39,8 @@
           </p>
         </div>
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {

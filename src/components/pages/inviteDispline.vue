@@ -3,28 +3,32 @@
     <span class="closeModal" @click="cancel"></span>
     <div class="wrapper">
       <b-container class="bv-example-row">
-         
         <b-row>
           <b-col class="mainTitle" md="12" sm="12">
             <p>
-              Invite people to  an application as<br>
+              Invite people to an application as
+              <br />
               <b>Director of discipline</b>
             </p>
           </b-col>
         </b-row>
-                <b-row class="displineInfo">
+        <b-row class="displineInfo">
           <b-col class="leftSide" sm="12" md="5">
             <label for="name">Name</label>
             <input type="text" placeholder="Discipline Name" />
           </b-col>
           <b-col class="rightSide" sm="12" md="5">
             <label for="email">Email</label>
-            <input type="email" placeholder="Discipline email"/>
-          </b-col>              
-            
-        </b-row> 
+            <input type="email" placeholder="Discipline email" />
+          </b-col>
+        </b-row>
 
-        <b-row class="displineInfo" v-for="(displine,index) in displines" :id="'data'+index" :key="index">
+        <b-row
+          class="displineInfo"
+          v-for="(displine,index) in displines"
+          :id="'data'+index"
+          :key="index"
+        >
           <b-col class="leftSide" sm="12" md="5">
             <label for="name">Name</label>
             <input type="text" placeholder="displine Name" />
@@ -33,9 +37,9 @@
             <label for="email">Email</label>
             <input type="email" placeholder="displine email" />
           </b-col>
-          <b-col md="2" class="addDiscipline" sm="12">  
-            <i class="fa fa-window-close" @click="del(index)" ></i>
-          </b-col>          
+          <b-col md="2" class="addDiscipline" sm="12">
+            <i class="fa fa-window-close" @click="del(index)"></i>
+          </b-col>
         </b-row>
         <b-row class="adddispline">
           <b-col md="2" sm="12">
@@ -71,29 +75,27 @@
 <script>
 export default {
   data() {
-    return { 
-      image:'',
-      displines:1,
-    }
+    return {
+      image: "",
+      displines: 1
+    };
   },
-   computed: {
-    
-   },
+  computed: {},
   methods: {
     imageChange(e) {
       this.image = e.target.files[0];
       this.$refs.imageSource.src = URL.createObjectURL(this.image);
     },
-    del(a){
-        var data = "data"+a
-        document.getElementById(data).style="display:none !important"
+    del(a) {
+      var data = "data" + a;
+      document.getElementById(data).style = "display:none !important";
     },
-    cancel(){
-      this.$store.dispatch("cancelInvite")
+    cancel() {
+      this.$store.dispatch("cancelInvite");
     }
   }
-   }
+};
 </script>
 <style lang="scss" scoped>
-@import '../../assets/style/inviteDispline.scss'
+@import "../../assets/style/inviteDispline.scss";
 </style>

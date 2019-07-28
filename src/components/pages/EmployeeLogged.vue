@@ -1,6 +1,6 @@
 <template>
-<div class="dashlogin">
-        <div class="loginNav">
+  <div class="dashlogin">
+    <div class="loginNav">
       <div class="icon">
         <img src="vue-logo.png" />
       </div>
@@ -27,7 +27,7 @@ export default {};
 <style lang="scss" scoped>
 @import "../../assets/style/Forms/employeeLogged.scss";
 </style>
-Collapse
+
 
 
 

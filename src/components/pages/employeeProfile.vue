@@ -1,6 +1,6 @@
  <template>
- <div class="dashlogin">
-        <div class="loginNav">
+  <div class="dashlogin">
+    <div class="loginNav">
       <div class="icon">
         <img src="vue-logo.png" />
       </div>
@@ -14,7 +14,7 @@
         <div class="form">
           <form class="content">
             <label for="name">Name</label>
-            <input type="text" placeholder="Name" class="namefield"/>
+            <input type="text" placeholder="Name" class="namefield" />
             <label for="sex">Sex</label>
             <select class="gender" name="sex" required>
               <option value disabled selected>Select Gender</option>
@@ -51,10 +51,10 @@
               </select>
             </div>
             <label for="Password">Password</label>
-            <input type="password" placeholder="Password" class="namefield"/>
+            <input type="password" placeholder="Password" class="namefield" />
             <p class="legal">
-              By signing up, you agree to our 
-              <router-link to="#" class="term">Terms of Service</router-link> and 
+              By signing up, you agree to our
+              <router-link to="#" class="term">Terms of Service</router-link>and
               <router-link to="#" class="term">Privacy Policy</router-link>
             </p>
             <button>
@@ -63,7 +63,7 @@
           </form>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 </template>
 <script>
