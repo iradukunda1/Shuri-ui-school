@@ -33,7 +33,7 @@ export default {
   name: "member",
   data() {
     return {
-      placeholder:"\uf002 search team member ...",
+      placeholder:"🔎  search team member ...",
       members: [
         {
           name: "Muhoza patrick",
