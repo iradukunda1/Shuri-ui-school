@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :style="hideToggle.hideSidebar">
       <div class="sidebarHeader">
         <img :src="logo" alt="Logo" />&nbsp;
         <p>Shuri School</p>
@@ -86,7 +86,9 @@ export default {
     };
   },
   computed: {
- 
+  hideToggle(){
+    return this.$store.getters.sidebar
+  }
   },
   methods: {
     toggleSidebar() {

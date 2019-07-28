@@ -2,9 +2,9 @@
     
     <div class="navbar">
       <div class="routeTitle">
-        <div class="sidebarToggler" @click="show = !show" v-show="show">
-          <i class="fa fa-bars" style=" color:black;"></i>
-        </div>
+        <!-- <div class="sidebarToggler" @click="show = !show" v-show="show"> -->
+          <i class="fa fa-bars" @click="hideSidebar" style=" color:black;"></i>
+        <!-- </div> -->
         <!-- <transition name="slide-fade">
           <p v-if="show" style="color:red;">bar ! bar!</p>
         </transition> -->
@@ -108,6 +108,16 @@ export default {
       setTimeout(()=>{
         this.$store.state.membersBar='0'
       },1)
+      },
+    hideSidebar(){
+    this.$store.dispatch("hideSidebar")
+
+    }
+  },
+  computed:{
+    showSidebar(){
+    return this.$store.getters.showSidebar
+     
     }
   }
 };

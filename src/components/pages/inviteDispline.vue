@@ -38,7 +38,7 @@
           </b-col>          
         </b-row>
         <b-row class="adddispline">
-          <b-col md="12" sm="12">
+          <b-col md="2" sm="12">
             <p @click="displines++">
               <i class="fa fa-plus-circle"></i>
               <span>Add another</span>

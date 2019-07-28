@@ -17,7 +17,13 @@ const store = new Vuex.Store({
     members:{
       view_employee_profile:false,
       view_members:false
+
+    },
+   sidebar:{
+      hideSidebar:"",
+      showToggle:""
     }
+    
   },
 
   mutations: {
@@ -50,9 +56,7 @@ const store = new Vuex.Store({
       state.creates.creatingClass=true
       
     },
-    view_employee_profile(state){
-      state.members.view_employee_profile=true
-    },
+    
     view_members(state){
       state.members.view_members=true
     },
@@ -61,6 +65,14 @@ const store = new Vuex.Store({
     },
     cancel_employee_profile(state){
       state.members.view_employee_profile=false
+    },
+    hideSidebar(state){
+      state.sidebar.hideSidebar="margin-left:-239px",
+      state.sidebar.showToggle="left:0px"
+    },
+    showSidebar(state){
+      state.sidebar.hideSidebar="margin-left:0",
+      state.sidebar.showToggle="left:-50px"
     }
   },
   actions: {
@@ -90,12 +102,19 @@ const store = new Vuex.Store({
     },
     cancel_members({commit}){
       commit("cancel_members")
+    },
+    hideSidebar({commit}){
+      commit("hideSidebar")
+    },
+    showSidebar({commit}){
+      commit("showSidebar")
     }
   },
   getters: {
     invite: state => state.invites,
     creates: state => state.creates,
-    members: state => state.members
+    members: state => state.members,
+    sidebar: state => state.sidebar
   }
 });
 export default store;
