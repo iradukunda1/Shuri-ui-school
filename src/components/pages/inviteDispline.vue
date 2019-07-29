@@ -1,7 +1,7 @@
 <template>
   <div class="newDiscipline">
     <span class="closeModal" @click="cancel"></span>
-    <div class="wrapper">
+    <div class="wrapper" v-click-outside="cancel">
       <b-container class="bv-example-row">
          
         <b-row>
@@ -34,7 +34,7 @@
             <input type="email" placeholder="displine email" />
           </b-col>
           <b-col md="2" class="addDiscipline" sm="12">  
-            <i class="fa fa-window-close" @click="del(index)" ></i>
+            <span class="closeInputs" @click="del(index)"></span>
           </b-col>          
         </b-row>
         <b-row class="adddispline">
@@ -69,7 +69,15 @@
   </div>
 </template>
 <script>
+import vClickOutside from "v-click-outside"
+const clickOutside = {
+   directives: {
+      clickOutside: vClickOutside.directive
+    }
+}; 
 export default {
+  name: "inviteTeacher",
+   mixins:[clickOutside],
   data() {
     return { 
       image:'',

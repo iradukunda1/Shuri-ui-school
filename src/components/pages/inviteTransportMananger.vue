@@ -1,7 +1,7 @@
 <template>
   <div class="newTransporter">
     <span class="closeModal" @click="cancel"></span>
-    <div class="wrapper">
+    <div class="wrapper" v-click-outside="cancel">
       <b-container class="bv-example-row">
          
         <b-row>
@@ -34,7 +34,7 @@
           </b-col>
           <b-col md="2" class="addTransporter" sm="12">
             
-            <i class="fa fa-window-close" @click="del(index)" ></i>
+            <span class="closeInputs" @click="del(index)"></span>
           </b-col>
           
         </b-row>
@@ -71,7 +71,15 @@
   </div>
 </template>
 <script>
+import vClickOutside from "v-click-outside"
+const clickOutside = {
+   directives: {
+      clickOutside: vClickOutside.directive
+    }
+}; 
 export default {
+  name: "inviteTransportMananger",
+   mixins:[clickOutside],
   data() {
     return {     
       image:'',     
@@ -101,8 +109,8 @@ export default {
 .closeModal{
         background:url("../../assets/img/plus.png") no-repeat;
         background-size:cover;        
-        height:20px;
-        width:20px;
+        height:30px;
+        width:30px;
         position: absolute;
         right: 30%;
         top: 5%;

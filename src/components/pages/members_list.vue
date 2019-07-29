@@ -2,13 +2,13 @@
   <div class="team_members_container">
     <div class="member_container" :style="{right:$store.state.membersBar}">
           <div class="main_title">
-        <i class="fa fa-close" @click="closeSidebar()"></i>
+        <span class="close2" @click="closeSidebar()"></span>
       <p>Team Members</p>
       <b-dropdown id="dropdown-left" class="moreOpt" no-caret  offset="-100">
           <template slot="button-content">
             <i class="fa fa-caret-down caret"></i>
           </template>
-        <b-dropdown-item @click="$store.dispatch('cancel_members'),$router.push('/all_members')"><i class="fa fa-eye"></i> View all</b-dropdown-item>
+        <b-dropdown-item @click="goTo_all_members()"><i class="fa fa-eye"></i> View all</b-dropdown-item>
           
         </b-dropdown>
     </div>
@@ -63,6 +63,13 @@ export default {
       this.$store.state.membersBar='-270px'
       setTimeout(()=>{
         this.$store.dispatch('cancel_members')
+      },1000)
+    },
+    goTo_all_members(){
+      this.$store.state.membersBar='-270px'
+      setTimeout(()=>{
+        this.$store.dispatch('cancel_members')
+        this.$router.push('/all_members')
       },1000)
     }
   }

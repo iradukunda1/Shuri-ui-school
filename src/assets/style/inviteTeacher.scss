@@ -9,17 +9,8 @@
   padding-top: 8%;
   position: fixed;
   z-index: 20;
-  .fa-close {
-    position: absolute;
-    right: 50px;
-    top: 35px;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    &:hover {
-      color: rgb(228, 226, 226);
-    }
-  }
+  
+  
   .wrapper {
     position: relative;
     width: 40%;
@@ -46,16 +37,7 @@
       padding-top: 20px;
       font-size: 13px;
       height: 47px;
-      .fa-window-close{
-        color: #2f75c1;
-        font-size: 15px;
-        position: absolute;
-        bottom: 3px;
-        cursor:pointer;
-        &:hover {
-            color: #f75d5d;
-        }
-      }
+      
     .option{
         display: inline-block;
         padding: 0.25rem 0.5rem;
@@ -76,8 +58,8 @@
         &:hover {
           background: #e6e6e6;
         }
-        &:focus{
-          background:red !important
+        &:active{
+          background:grey;
         }
       }
       .classItems .items span {
@@ -218,5 +200,11 @@
     p:nth-child(2) {
       font-size: 12px;
     }
+  }
+  .selected{
+    margin: 0;
+    font-family: poppins;
+    font-size: 12px;
+    color:#06064e;
   }
 }

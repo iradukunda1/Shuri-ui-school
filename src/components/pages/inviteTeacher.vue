@@ -1,8 +1,8 @@
 <template>
   <div class="newClass">
     <span class="closeModal" @click="cancel"></span>
-    <div class="wrapper">
-      <b-container class="bv-example-row">
+    <div class="wrapper" v-click-outside="cancel">
+      <b-container>
          
         <b-row>
           <b-col class="mainTitle" md="12" sm="12">
@@ -22,7 +22,8 @@
             <input type="email" placeholder="Teacher email"/>
           </b-col>
               
-          <b-col md="4" sm="12" class="addClass" ref="drpdown">
+              
+          <b-col md="4" sm="12" class="addClass" ref="drpdown" >
             <b-dropdown
               id="dropdown-left"
               offset="-50"
@@ -30,20 +31,22 @@
               variant="link"
               no-caret
               size="sm"
-              v-click-outside="closeDropdown"
-              
             >
               <template slot="button-content">
                 <p>Add class <i class="fa fa-caret-down"></i></p>
               </template>
               <div class="option">
-                <input id="search" type="search" size="sm" :placeholder="placeholder"  v-model="search"/>
+                <input id="search" type="search" size="sm" :placeholder="placeholder"  v-model="search"/>   
+                      <p class="selected" v-show="selectedState"><b>Name </b>:  {{selected.name}}</p>
+                      <p class="selected" v-show="selectedState"><b>Code </b>:  @{{selected.code}}</p>
+                    
+                  
               </div>
               <b-dropdown-divider></b-dropdown-divider>
               <div class="classItems">
                 <div class="classList">
      
-                  <div class="items" :id="'class'+index" v-for="(classDet,index) in filteredClasses" :key="index">
+                  <div class="items" :id="'class'+index" v-for="(classDet,index) in filteredClasses" :key="index" @click="selectedData(classDet)">
                     <span :style="{background:classDet.logo}"></span>
                     <p class="class_name">{{classDet.name}}</p>
                     <p class="code">@{{classDet.code}}</p>
@@ -52,7 +55,7 @@
               </div>
                 <div class="option">
                   <button>Add</button>
-                  <button @click="$refs.drpdown.click(),search=''">Cancel</button>
+                  <button @click="$refs.drpdown.click(),search='',selected=[],selectedState=false">Cancel</button>
                 </div>
             </b-dropdown>
           </b-col>          
@@ -68,6 +71,7 @@
             <input type="email" placeholder="Teacher email" />
           </b-col>
           <b-col md="4" class="addClass" sm="12">
+
             <b-dropdown
               id="dropdown-left"
               offset="-50"
@@ -75,18 +79,23 @@
               variant="link"
               no-caret
               size="sm"
-              v-click-outside="closeDropdown"
+
             >
               <template slot="button-content">
                 <p>Add class <i class="fa fa-caret-down"></i></p>
               </template>
               <div class="option">
-                <input type="search" id="search" v-model="search" size="sm" :placeholder="placeholder" />
+                <input id="search" type="search" size="sm" :placeholder="placeholder"  v-model="search"/>   
+                      <p class="selected" v-show="selectedState"><b>Name </b>:  {{selected.name}}</p>
+                      <p class="selected" v-show="selectedState"><b>Code </b>:  @{{selected.code}}</p>
+                    
+                  
               </div>
               <b-dropdown-divider></b-dropdown-divider>
               <div class="classItems">
                 <div class="classList">
-                  <div class="items" :id="'class'+index" v-for="(classDet,index) in filteredClasses" :key="index">
+     
+                  <div class="items" :id="'class'+index" v-for="(classDet,index) in filteredClasses" :key="index" @click="selectedData(classDet)">
                     <span :style="{background:classDet.logo}"></span>
                     <p class="class_name">{{classDet.name}}</p>
                     <p class="code">@{{classDet.code}}</p>
@@ -95,10 +104,10 @@
               </div>
                 <div class="option">
                   <button>Add</button>
-                  <button @click="$refs.drpdown.click(),search=''">Cancel</button>
+                  <button @click="$refs.drpdown.click(),search='',selected=[],selectedState=false">Cancel</button>
                 </div>
             </b-dropdown>
-            <i class="fa fa-window-close" @click="del(index)" ></i>
+            <span class="closeInputs" @click="del(index)"></span>
           </b-col>
           
         </b-row>
@@ -140,12 +149,14 @@ const clickOutside = {
     }
 }; 
 export default {
-  name: "dinviteTeacher",
+  name: "inviteTeacher",
    mixins:[clickOutside],
   data() {
     return {     
       search:'',
       image:'',
+      selected:[],
+      selectedState:false,
       classes: [
         {
           name: "S6 MEG",
@@ -191,12 +202,28 @@ export default {
     cancel(){
       this.$store.dispatch("cancelInvite")
     },
-    closeDropdown(){
-      this.search=""
+    selectedData(data){
+      this.selected=data
+      this.selectedState=true  
     }
   }
-   }
+   };
 </script>
+<style lang="scss">
+.closeInputs {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    background: url("../../assets/img/plus2.png") no-repeat;
+    background-size:cover;
+    transform:rotate(45deg);
+    height:20px;
+    width:20px;
+    cursor: pointer;
+    
+};
+</style>
+
 <style lang="scss" scoped>
 @import '../../assets/style/inviteTeacher.scss'
 </style>

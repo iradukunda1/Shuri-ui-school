@@ -7,17 +7,17 @@
           <template slot="button-content">
             <i class="fa fa-caret-down caret"></i>
           </template>
-          <b-dropdown-item @click="openSidebar()"><i class="fa fa-check-circle"></i> All members</b-dropdown-item>
-          <b-dropdown-item>
-            <i class="fa fa-user-circle"></i> Teacher
+          <b-dropdown-item @click="role=''"><i class="fa fa-check-circle"></i> All members</b-dropdown-item>
+          <b-dropdown-item @click="role='Teacher'">
+            <i class="fa fa-user-circle"></i> Teachers
           </b-dropdown-item>
-          <b-dropdown-item>
+          <b-dropdown-item @click="role='Director of Discipline'">
             <i class="fa fa-ellipsis-h"></i> Others
           </b-dropdown-item>
         </b-dropdown>
     </div>
   <div class="team_members">
-    <div class="list" v-for="(member,index) in members" :key="index">
+    <div class="list" v-for="(member,index) in filtered_members" :key="index">
       <div class="team_membersList" @click="$store.dispatch('view_employee_profile')">
         <span :style="{background:member.logo}" class="memberLogo"></span>
         <p class="memberName">{{member.name}}</p>
@@ -43,6 +43,7 @@ export default {
   name: "member",
   data() {
     return {
+      role:'',
       members: [
         {
           name: "Muhoza patrick",
@@ -67,12 +68,11 @@ export default {
       ]
     };
   },
-  methods:{
-    openSidebar(){
-      $store.dispatch('view_members'),
-      setTimeout(()=>{
-        this.$store.state.membersBar='0'
-      },1000)
+  computed:{
+    filtered_members(){
+      return this.members.filter(member=>{
+        return member.role.toLowerCase().includes(this.role.toLowerCase())
+      })
     }
   }
 };

@@ -21,7 +21,8 @@ const store = new Vuex.Store({
     },
    sidebar:{
       hideSidebar:"",
-      showToggle:""
+      showToggle:"",
+      nav_toggle:""
     }
     
   },
@@ -67,12 +68,20 @@ const store = new Vuex.Store({
       state.members.view_employee_profile=false
     },
     hideSidebar(state){
-      state.sidebar.hideSidebar="margin-left:-239px",
-      state.sidebar.showToggle="left:0px"
+      state.sidebar.hideSidebar="margin-left:-239px;"
+      state.sidebar.nav_toggle="display:none;"
+      setTimeout(()=>{
+        state.sidebar.showToggle="left:0px;transition:left 1s;"
+      },500)
     },
     showSidebar(state){
-      state.sidebar.hideSidebar="margin-left:0",
-      state.sidebar.showToggle="left:-50px"
+      state.sidebar.hideSidebar=""     
+      state.sidebar.showToggle=""
+      state.sidebar.nav_toggle=""
+
+    },
+    view_employee_profile(state){
+      state.members.view_employee_profile=true
     }
   },
   actions: {

@@ -23,15 +23,15 @@
       height:60px;
       position:relative;
       text-align:center;
-      .fa-close{
-        color:grey;
-        position:absolute;
-        left:10px;
-        font-size: 25px;
-        cursor:pointer;
-        &:hover{
-         color:lightgrey;
-        }
+      .close2{        
+          background:url("../../assets/img/plus2.png") no-repeat;
+          background-size:cover;        
+          height:20px;
+          width:20px;
+          position:absolute;
+          left:10px;
+          transform: rotate(45deg);
+          cursor: pointer;  
       }    
       .moreOpt{
         position: absolute;

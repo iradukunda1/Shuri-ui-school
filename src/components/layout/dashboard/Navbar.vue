@@ -1,13 +1,11 @@
 <template>
     
     <div class="navbar">
-      <div class="routeTitle">
-        <!-- <div class="sidebarToggler" @click="show = !show" v-show="show"> -->
-          <i class="fa fa-bars" @click="hideSidebar" style=" color:black;"></i>
-        <!-- </div> -->
-        <!-- <transition name="slide-fade">
-          <p v-if="show" style="color:red;">bar ! bar!</p>
-        </transition> -->
+      
+        <div class="sidebarToggler">
+          <i class="fa fa-bars" :style="showSidebar.nav_toggle" @click="hideSidebar" style=" color:black;"></i>
+        </div>
+      <div class="routeTitle"> 
       </div>
        <div class="new">
         
@@ -116,7 +114,7 @@ export default {
   },
   computed:{
     showSidebar(){
-    return this.$store.getters.showSidebar
+    return this.$store.getters.sidebar
      
     }
   }
