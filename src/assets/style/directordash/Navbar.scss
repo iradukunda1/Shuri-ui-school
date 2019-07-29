@@ -1,0 +1,212 @@
+.navbar {
+    width: 100%;
+    padding: 16px 22px !important;
+    padding: 0 30px;
+    position: relative;
+    font-family: sans-serif;
+    display: grid !important;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr auto auto auto;
+    grid-template-areas: "routeTitle  new notification profile";
+    overflow:visible;
+  }
+
+ 
+  .routeTitle {
+    font-family: Arial;
+    grid-area: routeTitle;
+    width: 100%;
+    height: 100%;
+  }
+  .routeTitle .name {
+    margin-top: 22px;
+    font-family: Arial;
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 26px;
+    margin-left: 15px;
+  }
+  
+  .profile .profileItem {
+    color: white;
+    border: none;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+  .profile .profileItem #dropdown-left__BV_toggle_ {
+    background: #4f3767;
+    border: none;
+    border-radius: 50%;
+    height: 34px;
+    width: 34px;
+  }
+  .sidebarToggler {
+    font-size: 25px;
+    color: #ececec63;
+    cursor: pointer;
+    position: absolute;
+    left: 12px;
+    top:15px;
+    z-index: 2;
+  }
+  .profile {
+    grid-area: profile;
+  }
+  .myProfile{
+    display:flex;
+    width:30px;
+    height:30px;
+    background:green;
+    border-radius:50%;
+  }
+  .myName{    
+    padding: 3px 0 0;
+  }
+  .myLogo{
+    padding:0
+  }
+  .mybuttonRow{
+    padding: 0 ;
+  }
+  .new {
+    grid-area: new;
+    width: 100%;
+    padding-right: 22px;
+   
+  }
+   .class_ico {   
+      background:url("../../../assets/img/class.png") no-repeat;
+      background-size: cover;
+      width:20px;
+      height:20px;
+      display: inline-flex;
+      position: relative;
+      top: 4px;
+    
+  }
+   .employee_ico {   
+      background:url("../../../assets/img/addEmployee.png") no-repeat;
+      background-size: cover;
+      width:20px;
+      height:20px;
+      display: inline-flex;
+      position: relative;
+      top: 4px;
+    
+  }
+  li{
+    list-style: none;
+    cursor: pointer;
+}
+li > a:after{
+    position: absolute;
+    left: 5px;
+    top: 15px;
+}
+li:hover > ul.dropdown-menu {
+    display: block;
+}
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: -130%;
+  left: -103%;   
+}
+.dropdown-menu > li > a:hover:after {
+    transform: rotate(90deg);
+} 
+.seeOptions #dropdown-left__BV_toggle_ {
+color: black;
+background: none;
+border: none;
+}
+.seeOptions #dropdown-left__BV_toggle_:focus {
+box-shadow: none;
+}
+.seeOptions .dropdown-item {
+padding-left: 0;
+padding-right: 0;
+}
+.dropdown-item {
+font-size: 15px;
+font-family: "Poppins", "sans-serif";
+}
+  .notification{
+    grid-area: notification;
+    width:100%;
+    cursor: pointer;
+    padding-right: 30px;
+  }
+  .new .newBtn {
+    position: relative;
+    top:5px;
+    color: white;
+    border: none;
+    font-family: sans-serif;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    background: #3897f0;
+    border-radius: 4px;
+    padding: 0 13px;
+  }
+  
+  .new .newBtn span {
+    position: absolute;
+    top: 9px;
+    right: 14px;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .new .newBtn i {
+    font-size: 11px;
+    float: left;
+  }
+  
+  @media screen and (max-width: 420px) {
+    .navbar {
+      width: 100%;
+      padding: 0 !important;
+    }
+    .new .newBtn #dropdown-right__BV_toggle_ span {
+      display: none;
+    }
+    .new .newBtn #dropdown-right__BV_toggle_ {
+      width: 25px;
+      height: 25px;
+      padding-left: 8px;
+    }
+    .schoolProfileNav .logo span {
+      height: 25px;
+    }
+    .schoolProfileNav .logo {
+      padding-left: 5px;
+    }
+    .schoolProfileNav .schoolTitle {
+      padding: 12px 3px 0;
+    }
+    .schoolProfileNav .schoolTitle i {
+      margin-left: 13px;
+    }
+    .schoolProfileNav p {
+      font-size: 13px;
+    }
+    .schoolProfileNav .Options ul li a {
+      font-size: 12px;
+    }
+    .schoolProfileNav .Options ul li {
+      margin-left: 4px;
+    }
+    .schoolProfileNav {
+      grid-template-columns: 30px auto;
+    }
+    .new {
+      padding-right: 10px;
+    }
+    .profile {
+      padding-right: 5px;
+    }
+  }
