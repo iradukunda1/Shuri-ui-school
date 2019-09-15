@@ -162,7 +162,7 @@ Getting Resource Related to registered class for a class profile.
 + Response 200 (application/json)
 
         [
-            {
+            {   This data can be displayed as class header.
                  id: "hgf87-6890-iojds87-fv9i0v-0f897vf90-djlvf09e8",
                 name: "S6PCB",
                 profile: "profile",
@@ -205,13 +205,15 @@ Setting Resource related to class during classes registiration.
         + profile:"S6PCB.png"(required)
         
 + Response 201 (application/json)
-    
-        [
-            {
-                message: "success",
-                status: "class created succefully"
-            }
-        ]
+
+        Location: /admin/schools 
+
+            [
+                {
+                    message: "success",
+                    status: "class created succefully"
+                }
+            ]
 
 + Response 400 (application/json)
 
@@ -236,14 +238,14 @@ Setting Resource related to class during classes registiration.
         ]
 
 ##Companies [/admin/companies]
-
+Getting all Companies from backend it's all description detail's required in order school to trust it.
 ### Get All Bus Companies [GET /admin/companies]
 Resource fetches all the bus companies and displays them
 + Response 200 (application/json)
 
         [
             {
-                id: "hgf87-6890-iojds87fv9i0v-0f897vf90-djlvf09e8",
+                id: "001",
                 name: "Matunda LTD",
                 email: "matunda@gmail.com",
                 country: "Rwanda",
@@ -252,11 +254,9 @@ Resource fetches all the bus companies and displays them
                 phoneNumber: "0781415878",
                 createdAt: "12/09/2018",
                 status:"partened",
-                buses:"452",
-                drivers:"100"
             },
             {
-                id: "k6676h-j00f-ygiuuyyy976v-jnuyg70-djlkiju",
+                id: "002",
                 name: "ISHEJA LTD",
                 email: "shejaeddy05@gmail.com",
                 country: "Rwanda",
@@ -264,12 +264,10 @@ Resource fetches all the bus companies and displays them
                 sector: "Kagarama",
                 phoneNumber: "072456788",
                 createdAt: "01/02/2019",
-                status:"Requested",
-                buses:"50",
-                drivers:"45",
+                status:"Requested"
             },
             {
-                id: "k6676h-j00f-ygiuuyyy976v-jnuyg70-djlkiju",
+                id: "003",
                 name: "ISHEJA LTD",
                 email: "shejaeddy05@gmail.com",
                 country: "Rwanda",
@@ -277,8 +275,130 @@ Resource fetches all the bus companies and displays them
                 sector: "Kagarama",
                 phoneNumber: "072456788",
                 createdAt: "01/02/2019",
-                status:"none",
-                buses:"200",
-                drivers"150"
+                status:"none"
             }
         ]
+        
+### Get Bus Company Profile [GET /company-profile/{?id,name}]
+Resource related in reading a company profile for school.
+
++ Parameters
+       + id: `hgf87-6890-iojds87fv9i0v-0f897vf90-djlvf09e8`(required,string) ~ ID of company related to company id given during registration.
+       + name: "Matunda LTD"(required,string)~ Name of company related to company name given during registration.
+
++ Response 200 (application/json)
+
+                {
+                   id: "002"(required,string) ~ ID of company related to company id given during registration.
+                   name: "Matunda LTD"(required,string)~ Name of company related to company name given during registration.
+                   status:"partened"(required,string) ~ Status related company availablity if is neither partened nor Requested then school can make it partner. 
+                   buses:"452"(required,number) ~ buses related to total number of buses owened by company.
+                   drivers:"100"(required,number) ~ Drivers related to total number of drivers owened by company as employee.
+                   connectionCovered:"2000"(required,number) ~ Connection covered by company as work covered by company.
+                   Experienced:"5"(required,number) ~ Experienced time of company.
+                }
+
+###Make Partner [POST /companies/{?id}]
+Sending Resource related to make company as partner.
+
+
++ Parameters
+
+    + id:"003",
+
++ Request (application/json)
+
+    + Attributes
+        + select:"i agree with term and condition"(required) ~ if you need to confrim in order to make partnership.
+        
++ Response 201 (application/json)
+
+        Location: /companies 
+
+            [
+                {
+                    message: "success",
+                    status: "make partner succefully"
+                }
+            ]
+
++ Response 400 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    select: "select is required"||
+                }
+            }
+        ];
+
++ Response 503 (application/json)
+
+        [
+            {
+                message: "make partner doesn't done",
+                error: "Delivery Failure"
+            }
+        ]
+
+#Group All Members
+
+## School Members Staff
+
+###Get All Members [GET /all-members]
+Resource related to school members staff.
+
++ Response 200 (applicatio/json)
+
+        [
+                {
+                id:"001",
+                name: "Muhoza patrick",
+                role: "Teacher",
+                created: "12 May 2019",
+                gender: "Male",
+                nationality: "Burundian",
+                phoneNumber: "+26078878780",
+                birthDay: "12 july 2018"
+                },
+                {
+                id:"002",
+                name: "Mucyo emmy",
+                role: "Director of Discipline",
+                created: "12 June 2007",
+                visited: "22 hours Ago",
+                gender: "Female",
+                phoneNumber: "+2507883564",
+                birthDay: "12 june 2008"
+                },
+                {
+                id:"003",
+                name: "Habimana claude",
+                role: "Teacher",
+                created: "12 July 2009",
+                visited: "10 hours Ago",
+                gender: "Male",
+                nationality: "Canandian",
+                birthDay: "12 may 2000"
+                }
+        ]
+###Get Member Profile [GET /all-members/{?id,name}]
+Resource related to school staff member profile
+
++ Parameters
+    + id:"002"(required,number) ~ ID of member related to id given during registration,
+    + name:"Muhoza patrick"(required, string) ~ Name of  member related to the name given during registration.
+    
++ Response 200 (application/json)
+
+            {
+                id:"002",
+                name: "Mucyo emmy",
+                role: "Director of Discipline",
+                created: "12 June 2007",
+                visited: "22 hours Ago",
+                gender: "Female",
+                phoneNumber: "+2507883564",
+                birthDay: "12 june 2008"
+            },
