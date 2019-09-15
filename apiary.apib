@@ -1,0 +1,284 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+# SHURI-SCHOOL Api
+A set of requests and requirements that make up the api.<br>
+This is for shuri-School Api platform.
+## Authentication
+This API uses school Query Parameter for its authentication.<br>
+The parameters that are needed to be sent for this type of authentication are as follows:
+`token` - API token from shuri admin to authorize request.
+# Group Registered School Data 
+## School [/admin/school]
+
+### Call Logged in school data[GET /admin/schools/current{?token,id,name,email}]
+Getting Resource related to school while entering his credentials and requesting for authentication.
++ Parameters
+    + token (`hgf876890iojds87fv9i0v0f897vf90djlvf09e8`)
+             **School-token**: You can call school token from ShuriAdmin to login onto shuri-school.
+    + id: 124 (required, number) - ID given to school during school registeration in shuri admin.
+    + name: `Kagarama High School` - Name of school used when registering school in shuri admin.
+    + email: `kagarama@gmail.com`(required, string) - school email used when registering school in shuri admin.
++ Request (application/json)
+
+    + Headers
+            
+            token:hgf876890iojds87fv9i0v0f897vf90djlvf09e8
+
++ Response 200 (application/json)
+   
+        [
+            {
+                message: "success",
+                user: {
+                    email: "kagarama@gmail.com",
+                    password: "shurikagarama"
+                },
+                **stayLogged**:true
+            }
+        ]
++ Response 401 (application/json)
+
+        [
+            {
+                message: "Access Denied",
+                error: "Unauthorized"
+            }
+        ]
+### SCHOOL LOGIN [POST /admin/schools/auth]
+Sending Resource related to school while entering his credentials and requesting for login authentication.
++ Request (application/json)
+
+    + Attributes
+        + email: "kagarama@gmail.com" (required)
+        + password: "shurikagarama" (required)
+        + staylogged:true
+
++ Response 200 (application/json)
+
+        [
+            {
+                message: "success",
+                token: "hgf876890iojds87fv9i0v0f897vf90djlvf09e8"
+            }
+        ]
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /admin/schools/auth
+
++ Response 404 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    email: "Email is invalid"||"Email is required"||"Email/Password is incorrect" ||
+                    password: "Password is required"||"Email/Password is incorrect"
+                }
+            }
+        ] 
+
+# Group Welcoming User to Regestered School Message
+
+## Welcome to School [/admin/schools/welcome]
+This message is displayed for first when registered school is loggedIn on `shuri-school`.
+
+### Call Registered School Name [GET /admin/schools/welcome/user{?name,user_id,school_name}]
+Getting Resource related to school name while entering his credentials and requesting for registeration onto shuriAdmin.
++ Parameters
+    + name:"Mugabo Luc" ~ Names for user who login on shuri-school whom registered in school platform during registration process.
+    + user_id:1 (required,number) ~ ID given to the user during registration process of school platform.
+    + school_name:`kagarama High School` ~ Name of school where user is worked. 
++ Request  (application/json)
+
+    + Headers
+            
+            user_id:1
+
++ Response 200 (application/json)
+
+    + body
+    
+            description: "am kagarama high school"
+            
++ Response 401 (application/json)
+
+        
+        message: "no description for school",
+        error: "Unauthorized"
+        
+### Setting school description [POST /admin/schools]
+Resource related to school confrimation of registeration as description.
++ Request (application/json)
+
+    + Attributes
+        + description: "hello am karagama high school" (required)
+        + Vision: "Better education to all Rwandan's" (required)
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /admin/schools
+
+# Group Classes
+
+##Classes Of School [/school/classes]
+This is classes in `shuri-school`.
+
+###Get All Classes [GET /school/classes]
+Getting Resource Related to classes.
++ Response 200 (application/json)
+
+        [
+            {
+                id: "hgf87-6890-iojds87f-v9i0v-0f897vf90-djlvf09e8",
+                className: "S5MEG",
+                classProfile: "profile_white",
+                subject: "Math 2019",
+                updatedDate: "August 20",
+                teacherName: "Matanya Davis",
+                classCode: "@3744"
+            },
+            {
+                id: "hgf87-6890-iojds87-fv9i0v-0f897vf90-djlvf09e8",
+                className: "S6PCB",
+                classProfile: "profile",
+                subject: "Kiny 2019",
+                updatedDate: "Sep 20",
+                teacherName: "Muhoza tony",
+                classCode: "@6678"
+            },
+        ]
+
+###Get Class Profile [GET /school/students/{?id,name}]
+Getting Resource Related to registered class for a class profile.
++ Parameters
+    + id:`hgf87-6890-iojds87-fv9i0v-0f897vf90-djlvf09e8` (required,number) ~ID given to Class during classes registration which required for class profile.
+    + name:"S6PCB" (required, string) ~ class name which is used as url params.
+
++ Response 200 (application/json)
+
+        [
+            {
+                 id: "hgf87-6890-iojds87-fv9i0v-0f897vf90-djlvf09e8",
+                name: "S6PCB",
+                profile: "profile",
+                subject: "Kiny 2019",
+                updatedDate: "Sep 20",
+                teacherName: "Muhoza tony",
+                code: "@6678"
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            List of class students which are assigned for the selected class
+            {
+              name: "Muhozi Alex",
+              gender: "Male",
+              date: "19 year old"
+            },
+            {
+              name: "Shema Fred",
+              gender: "Female",
+              date: "18 year old"
+            },
+            {
+              name: "Mucyo Allan",
+              gender: "Male",
+              date: "11 year old"
+            }
+        ]
+
+###Create Class [POST /school/classes]
+Setting Resource related to class during classes registiration.
+
++ Request (application/json)
+
+    + Attributes
+        + name:"S6PCB"(required)
+        + code:"@568"(required)
+        + profile:"S6PCB.png"(required)
+        
++ Response 201 (application/json)
+    
+        [
+            {
+                message: "success",
+                status: "class created succefully"
+            }
+        ]
+
++ Response 400 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    name: "name is required"||
+                    code: "country is required"||
+                    profile: "phoneNumber is required"||
+                }
+            }
+        ];
+
++ Response 503 (application/json)
+
+        [
+            {
+                message: "class could not be created",
+                error: "Delivery Failure"
+            }
+        ]
+
+##Group Companies [/admin/companies]
+
+### Get All Bus Companies [GET /admin/companies]
+Resource fetches all the bus companies and displays them
++ Response 200 (application/json)
+
+        [
+            {
+                id: "hgf87-6890-iojds87fv9i0v-0f897vf90-djlvf09e8",
+                name: "Matunda LTD",
+                email: "matunda@gmail.com",
+                country: "Rwanda",
+                district: "Gasabo",
+                sector: "Remera",
+                phoneNumber: "0781415878",
+                createdAt: "12/09/2018",
+                status:"partened",
+                buses:"452",
+                drivers:"100"
+            },
+            {
+                id: "k6676h-j00f-ygiuuyyy976v-jnuyg70-djlkiju",
+                name: "ISHEJA LTD",
+                email: "shejaeddy05@gmail.com",
+                country: "Rwanda",
+                district: "Kicukiro",
+                sector: "Kagarama",
+                phoneNumber: "072456788",
+                createdAt: "01/02/2019",
+                status:"Requested",
+                buses:"50",
+                drivers:"45",
+            },
+            {
+                id: "k6676h-j00f-ygiuuyyy976v-jnuyg70-djlkiju",
+                name: "ISHEJA LTD",
+                email: "shejaeddy05@gmail.com",
+                country: "Rwanda",
+                district: "Kicukiro",
+                sector: "Kagarama",
+                phoneNumber: "072456788",
+                createdAt: "01/02/2019",
+                status:"none",
+                buses:"200",
+                drivers"150"
+            }
+        ]
