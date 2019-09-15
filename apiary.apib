@@ -79,7 +79,7 @@ Sending Resource related to school while entering his credentials and requesting
             }
         ] 
 
-# Group Welcoming User to Regestered School Message
+# Group Welcoming User Message 
 
 ## Welcome to School [/admin/schools/welcome]
 This message is displayed for first when registered school is loggedIn on `shuri-school`.
@@ -402,8 +402,61 @@ Resource related to school staff member profile
                 phoneNumber: "+2507883564",
                 birthDay: "12 june 2008"
             },
-            
-## Group Invite People to Apply [/invite]
+
+###Create  Employee [POST /employee]
+Sending Resource Related to school employee.
++ Request (application/json)
+
+    + Attributes
+        + name:"Muhoza yves"(required)
+        + email:"hoza@gmail.com"(required)
+        + gender:"Male"(required)
+        + brithday:"05/Jan/1996"(required)
+        + country:"Rwanda"(required)
+        + password:"teacher muhoza"(required)
+        + role:"teacher"(required)
+        + phoneNumber:"+250788535245"(required)
+        
++ Response 201 (application/json)
+
+        Location: /employee 
+
+            [
+                {
+                    message: "success",
+                    status: "employee created succefully"
+                }
+            ]
+
++ Response 400 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    name: "name is required"||
+                    email: "email is required"||
+                    country:"country is required"||
+                    gender:"gender is required" ||
+                    brithday:"brithday is required"||
+                    password:"password is required"||
+                    role:"role is required"||
+                    phoneNumber:"phone number is required"
+                }
+            }
+        ];
+
++ Response 503 (application/json)
+
+        [
+            {
+                message: "couldn't create employee",
+                error: "Delivery Failure"
+            }
+        ]
+
+#Group Invite
+##Invite People to Apply [/invite]
 ###Invite Director [POST /invite/director]
 Sending Resource related to director of discipline
 + Request (application/json)
@@ -493,7 +546,7 @@ Sending Resource related to teacher.
         + select class:{
                         name:"S6MEG"(required)
                         code:"@243M"(required)
-                       }
+                      }
     
 + Response 201 (application/json)
 
