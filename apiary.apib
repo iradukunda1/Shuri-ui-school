@@ -404,4 +404,127 @@ Resource related to school staff member profile
             },
             
 ## Group Invite People to Apply [/invite]
-###Invite Director [POST /invite/Director]
+###Invite Director [POST /invite/director]
+Sending Resource related to director of discipline
++ Request (application/json)
+
+    + Attributes
+        + name:"Muhoza yves"(required)
+        + email:"hoza@gmail.com"(required)
+        
++ Response 201 (application/json)
+
+        Location: /invite/director 
+
+            [
+                {
+                    message: "success",
+                    status: "director invitation sent succefully"
+                }
+            ]
+
++ Response 400 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    name: "name is required"||
+                    email: "email is required"||
+                }
+            }
+        ];
+
++ Response 503 (application/json)
+
+        [
+            {
+                message: "invitation couldn't sent",
+                error: "Delivery Failure"
+            }
+        ]
+
+###Invite Transport [POST /invite/transport]
+Sending Resource related to transport manager.
++ Request (application/json)
+
+    + Attributes
+        + name:"Mugisha Dodo"(required)
+        + email:"dodo@gmail.com"(required)
+        
++ Response 201 (application/json)
+
+        Location: /invite/transport 
+
+            [
+                {
+                    message: "success",
+                    status: "transport invitation sent succefully"
+                }
+            ]
+
++ Response 400 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    name: "name is required"||
+                    email: "email is required"||
+                }
+            }
+        ];
+
++ Response 503 (application/json)
+
+        [
+            {
+                message: "invitation couldn't sent",
+                error: "Delivery Failure"
+            }
+        ]
+###Invite Teacher [POST /invite/teacher]
+Sending Resource related to teacher.
++ Request (application/json)
+
+    + Attributes
+        + name:"Matanya Davis"(required)
+        + email:"matanya@gmail.com"(required)
+        + select class:{
+                        name:"S6MEG"(required)
+                        code:"@243M"(required)
+                       }
+    
++ Response 201 (application/json)
+
+        Location: /invite/teacher 
+
+            [
+                {
+                    message: "success",
+                    status: "teacher invitation sent succefully"
+                }
+            ]
+
++ Response 400 (application/json)
+
+        [
+            {
+                message: "validation error",
+                error: {
+                    name: "name is required"||
+                    email: "email is required"||
+                    code:"class name is required"||
+                    name:"class name is required"
+                }
+            }
+        ];
+
++ Response 503 (application/json)
+
+        [
+            {
+                message: "invitation couldn't sent",
+                error: "Delivery Failure"
+            }
+        ]
